@@ -26,10 +26,9 @@ export class WindowManager {
       show: true,
       trafficLightPosition: {
         x: 10,
-        y: 15,
+        y: 14,
       },
-      titleBarStyle: 'hiddenInset',
-      vibrancy: 'sidebar',
+      frame: false,
       ...options,
     })
     return this.currentWindow
