@@ -85,15 +85,24 @@ const TopBar = () => {
         </div>
       </div>
       {/* Showing custom toolbar on windows */}
-      {!isMac && (
+      {!isMac && window.electronAPI && (
         <div className="fixed right-0 top-0 flex h-10 items-center overflow-hidden">
-          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
+          <div
+            className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            onClick={() => window.electronAPI.minimizeApp()}
+          >
             <MinusIcon size={16} />
           </div>
-          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
+          <div
+            className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            onClick={() => window.electronAPI.maximizeApp()}
+          >
             <SquareIcon size={14} />
           </div>
-          <div className="unset-drag hover:bg-red flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
+          <div
+            className="unset-drag hover:bg-red flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            onClick={() => window.electronAPI.closeApp()}
+          >
             <XIcon size={16} />
           </div>
         </div>

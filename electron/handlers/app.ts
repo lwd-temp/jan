@@ -131,6 +131,33 @@ export function handleAppIPCs() {
   })
 
   /**
+   * Close App
+   */
+  ipcMain.handle(AppRoute.closeApp, async (_event) => {
+    WindowManager.instance.currentWindow?.close()
+    app.exit()
+  })
+
+  /**
+   * Minimize App
+   */
+  ipcMain.handle(AppRoute.minimizeApp, async (_event) => {
+    WindowManager.instance.currentWindow?.minimize()
+  })
+
+  /**
+   * Maximize App
+   */
+  ipcMain.handle(AppRoute.maximizeApp, async (_event) => {
+    console.log(WindowManager.instance.currentWindow?.isMaximized(), 'before')
+    if (WindowManager.instance.currentWindow?.isMaximized()) {
+      WindowManager.instance.currentWindow?.restore()
+    } else {
+      WindowManager.instance.currentWindow?.maximize()
+    }
+  })
+
+  /**
    * Log message to log file.
    */
   ipcMain.handle(AppRoute.log, async (_event, message) => log(message))

@@ -73,7 +73,9 @@ function createMainWindow() {
   /* Load frontend app to the window */
   mainWindow.loadURL(startURL)
 
-  mainWindow.once('ready-to-show', () => mainWindow?.show())
+  mainWindow.once('ready-to-show', () => {
+    mainWindow?.show()
+  })
   mainWindow.on('closed', () => {
     if (process.platform !== 'darwin') app.quit()
   })
