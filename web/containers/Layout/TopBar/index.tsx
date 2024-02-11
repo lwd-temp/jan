@@ -12,6 +12,7 @@ import {
 
 import { twMerge } from 'tailwind-merge'
 
+import LogoMark from '@/containers/Brand/Logo/Mark'
 import CommandSearch from '@/containers/Layout/TopBar/CommandSearch'
 
 import { showLeftSideBarAtom } from '@/containers/Providers/KeyListener'
@@ -48,9 +49,6 @@ const TopBar = () => {
 
   const titleScreen = (viewStateName: MainViewState) => {
     switch (viewStateName) {
-      case MainViewState.Thread:
-        return activeThread ? activeThread?.title : 'New Thread'
-
       case MainViewState.LocalServer:
         return 'Local API Server'
 
@@ -231,14 +229,15 @@ const TopBar = () => {
     //   )}
     //   <CommandSearch />
     // </div>
-    <div className="fixed left-0 top-0 h-10 w-full border border-border">
+    <div className="drag fixed left-0 top-0 h-10 w-full border border-border">
       <div
         className={twMerge(
           'flex h-full items-center',
           isMac ? 'pl-20' : 'pl-4'
         )}
       >
-        <div className="flex items-center">
+        <div className="flex items-center space-x-4">
+          {!isMac && <LogoMark width={20} height={20} className="mx-auto" />}
           <h1 className="text-sm font-bold">{titleScreen(mainViewState)}</h1>
         </div>
       </div>
