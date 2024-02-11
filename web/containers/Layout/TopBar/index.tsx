@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import { useAtom, useAtomValue } from 'jotai'
 import {
@@ -8,6 +8,9 @@ import {
   Code2Icon,
   PanelLeftCloseIcon,
   PanelRightCloseIcon,
+  MinusIcon,
+  XIcon,
+  SquareIcon,
 } from 'lucide-react'
 
 import { twMerge } from 'tailwind-merge'
@@ -66,6 +69,37 @@ const TopBar = () => {
   }
 
   return (
+    <Fragment>
+      <div className="drag fixed left-0 top-0 h-10 w-full border border-border">
+        <div
+          className={twMerge(
+            'flex h-full items-center',
+            // Conditional padding bc only mac have trafficlight icon
+            isMac ? 'pl-20' : 'pl-4'
+          )}
+        >
+          <div className="flex items-center space-x-4">
+            {!isMac && <LogoMark width={20} height={20} className="mx-auto" />}
+            <h1 className="text-sm font-bold">{titleScreen(mainViewState)}</h1>
+          </div>
+        </div>
+      </div>
+      {/* Showing custom toolbar on windows */}
+      {!isMac && (
+        <div className="fixed right-0 top-0 flex h-10 items-center space-x-4">
+          <div className="flex-shrink-0">
+            <MinusIcon size={16} />
+          </div>
+          <div className="flex-shrink-0">
+            <SquareIcon size={14} />
+          </div>
+          <div className="flex-shrink-0">
+            <XIcon size={16} />
+          </div>
+        </div>
+      )}
+    </Fragment>
+
     // <div className="fixed left-0 top-0 z-50 flex h-12 w-full border-b border-border bg-background/80 backdrop-blur-md">
     //   {mainViewState !== MainViewState.Thread &&
     //   mainViewState !== MainViewState.LocalServer ? (
@@ -229,19 +263,6 @@ const TopBar = () => {
     //   )}
     //   <CommandSearch />
     // </div>
-    <div className="drag fixed left-0 top-0 h-10 w-full border border-border">
-      <div
-        className={twMerge(
-          'flex h-full items-center',
-          isMac ? 'pl-20' : 'pl-4'
-        )}
-      >
-        <div className="flex items-center space-x-4">
-          {!isMac && <LogoMark width={20} height={20} className="mx-auto" />}
-          <h1 className="text-sm font-bold">{titleScreen(mainViewState)}</h1>
-        </div>
-      </div>
-    </div>
   )
 }
 
