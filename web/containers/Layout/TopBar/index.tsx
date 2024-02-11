@@ -85,15 +85,15 @@ const TopBar = () => {
         </div>
       </div>
       {/* Showing custom toolbar on windows */}
-      {isMac && (
+      {!isMac && (
         <div className="fixed right-0 top-0 flex h-10 items-center overflow-hidden">
-          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-4 hover:bg-secondary">
+          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
             <MinusIcon size={16} />
           </div>
-          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-4 hover:bg-secondary">
+          <div className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
             <SquareIcon size={14} />
           </div>
-          <div className="unset-drag hover:bg-red flex h-full flex-shrink-0 items-center justify-center px-4">
+          <div className="unset-drag hover:bg-red flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary">
             <XIcon size={16} />
           </div>
         </div>
