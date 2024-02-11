@@ -76,23 +76,23 @@ const Providers = (props: PropsWithChildren) => {
 
   return (
     <JotaiWrapper>
-      <ThemeWrapper>
-        <Umami />
-        {settingUp && <Loader description="Preparing Update..." />}
-        {setupCore && activated && (
+      <Umami />
+      {settingUp && <Loader description="Preparing Update..." />}
+      {setupCore && activated && (
+        <ThemeWrapper>
           <KeyListener>
             <FeatureToggleWrapper>
               <EventListenerWrapper>
-                <TooltipProvider delayDuration={0}>
-                  <DataLoader>{children}</DataLoader>
-                </TooltipProvider>
+                <DataLoader>{children}</DataLoader>
+                {/* <TooltipProvider delayDuration={0}>
+                </TooltipProvider> */}
                 {!isMac && <GPUDriverPrompt />}
               </EventListenerWrapper>
               <Toaster />
             </FeatureToggleWrapper>
           </KeyListener>
-        )}
-      </ThemeWrapper>
+        </ThemeWrapper>
+      )}
     </JotaiWrapper>
   )
 }

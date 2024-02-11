@@ -1,0 +1,12 @@
+@import "../../styles/bases.scss";
+
+.tooltip {
+  background-color: hsl(var(--bg-base));
+  color: hsl(var(--fg-base));
+  border-radius: var(--radius-medium);
+  @apply max-w-80 px-3 py-2;
+
+  &--arrow {
+    fill: hsl(var(--bg-base));
+  }
+}

@@ -18,25 +18,25 @@ export default function Page() {
 
   let children = null
   switch (mainViewState) {
-    case MainViewState.Hub:
-      children = <ExploreModelsScreen />
-      break
+    // case MainViewState.Hub:
+    //   children = <ExploreModelsScreen />
+    //   break
 
-    case MainViewState.Settings:
-      children = <SettingsScreen />
-      break
+    // case MainViewState.Settings:
+    //   children = <SettingsScreen />
+    //   break
 
     case MainViewState.SystemMonitor:
       children = <SystemMonitorScreen />
       break
 
-    case MainViewState.LocalServer:
-      children = <LocalServerScreen />
-      break
+    // case MainViewState.LocalServer:
+    //   children = <LocalServerScreen />
+    //   break
 
-    default:
-      children = <ChatScreen />
-      break
+    // default:
+    //   children = <ChatScreen />
+    //   break
   }
 
   return <BaseLayout>{children}</BaseLayout>

@@ -1,3 +1,4 @@
+import { getJanDataFolderPath } from '@janhq/core'
 import {
   ScrollArea,
   Progress,
@@ -10,9 +11,13 @@ import {
   TooltipTrigger,
 } from '@janhq/uikit'
 
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 
 import { useActiveModel } from '@/hooks/useActiveModel'
+
+// import useDirectory from '@/hooks/useDirectory'
+
+import { useThemes } from '@/hooks/useThemes'
 
 import { toGibibytes } from '@/utils/converter'
 
@@ -22,6 +27,11 @@ import {
   totalRamAtom,
   usedRamAtom,
 } from '@/helpers/atoms/SystemBar.atom'
+import {
+  themeAtom,
+  themeOptionsAtom,
+  janTheme,
+} from '@/helpers/atoms/Theme.atom'
 
 const Column = ['Name', 'Model ID', 'Size', 'Version', 'Action']
 
@@ -31,11 +41,38 @@ export default function SystemMonitorScreen() {
   const cpuUsage = useAtomValue(cpuUsageAtom)
   const { activeModel, stateModel, stopModel } = useActiveModel()
   const [serverEnabled, setServerEnabled] = useAtom(serverEnabledAtom)
+  const setTheme = useSetAtom(themeAtom)
+  const themeOption = useAtomValue(themeOptionsAtom)
+  const { test } = useThemes()
 
   return (
     <div className="flex h-full w-full bg-background dark:bg-background">
       <ScrollArea className="h-full w-full">
-        <div className="h-full p-8" data-testid="testid-system-monitor">
+        <div className="mx-auto w-1/2">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta non
+            excepturi facere incidunt officiis quia a consequuntur ipsum debitis
+            numquam ut eligendi magni laborum, laudantium doloremque
+            perferendis, totam quidem aliquam!
+          </p>
+          {themeOption.map((x, i) => {
+            return (
+              <Button
+                themes="primary"
+                key={i}
+                className="mx-4"
+                onClick={() => {
+                  setTheme(x)
+                  localStorage.setItem(janTheme, x)
+                  test(x)
+                }}
+              >
+                {x}
+              </Button>
+            )
+          })}
+        </div>
+        {/* <div className="h-full p-8" data-testid="testid-system-monitor">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
             <div className="rounded-xl border border-border p-4">
               <div className="flex items-center justify-between">
@@ -145,7 +182,7 @@ export default function SystemMonitorScreen() {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </ScrollArea>
     </div>
   )

@@ -5,9 +5,8 @@ import { useTheme } from 'next-themes'
 import { motion as m } from 'framer-motion'
 
 import BottomBar from '@/containers/Layout/BottomBar'
-import RibbonNav from '@/containers/Layout/Ribbon'
-
 import TopBar from '@/containers/Layout/TopBar'
+import RibbonNav from '@/containers/RibbonNav'
 
 import { MainViewState } from '@/constants/screens'
 
@@ -32,9 +31,9 @@ const BaseLayout = (props: PropsWithChildren) => {
   }, [setMainViewState])
 
   return (
-    <div className="flex h-screen w-screen flex-1 overflow-hidden">
+    <div className="app-wrapper">
       <RibbonNav />
-      <div className=" relative top-10 flex h-[calc(100vh-80px)] w-full overflow-hidden bg-background">
+      <div className="relative top-10 flex h-[calc(100vh-80px)] w-full overflow-hidden bg-background">
         <div className="w-full">
           <TopBar />
           <m.div
@@ -49,7 +48,7 @@ const BaseLayout = (props: PropsWithChildren) => {
               },
             }}
           >
-            {/* {children} */}
+            {children}
           </m.div>
           <BottomBar />
         </div>

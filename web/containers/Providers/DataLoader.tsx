@@ -14,7 +14,6 @@ const DataLoader: React.FC<Props> = ({ children }) => {
   useModels()
   useThreads()
   useAssistants()
-
   return <Fragment>{children}</Fragment>
 }
 
