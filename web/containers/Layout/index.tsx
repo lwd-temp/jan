@@ -33,11 +33,11 @@ const BaseLayout = (props: PropsWithChildren) => {
 
   return (
     <div className="flex h-screen w-screen flex-1 overflow-hidden">
-      {/* <RibbonNav /> */}
-      <div className=" relative top-12 flex h-[calc(100vh-96px)] w-full overflow-hidden bg-background">
+      <RibbonNav />
+      <div className=" relative top-10 flex h-[calc(100vh-88px)] w-full overflow-hidden bg-background">
         <div className="w-full">
           <TopBar />
-          {/* <m.div
+          <m.div
             key={mainViewState}
             initial={{ opacity: 0, y: -8 }}
             className="h-full"
@@ -50,8 +50,8 @@ const BaseLayout = (props: PropsWithChildren) => {
             }}
           >
             {children}
-          </m.div> */}
-          {/* <BottomBar /> */}
+          </m.div>
+          <BottomBar />
         </div>
       </div>
     </div>

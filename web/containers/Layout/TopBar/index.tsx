@@ -231,17 +231,16 @@ const TopBar = () => {
     //   )}
     //   <CommandSearch />
     // </div>
-    <div className="fixed left-0 top-0 h-11 w-full bg-red-200">
+    <div className="fixed left-0 top-0 h-10 w-full border border-border">
       <div
         className={twMerge(
           'flex h-full items-center',
           isMac ? 'pl-20' : 'pl-4'
         )}
       >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-          laboriosam.
-        </p>
+        <div className="flex items-center">
+          <h1 className="text-sm font-bold">{titleScreen(mainViewState)}</h1>
+        </div>
       </div>
     </div>
   )
