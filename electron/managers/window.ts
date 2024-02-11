@@ -24,7 +24,7 @@ export class WindowManager {
       minWidth: 1200,
       height: 800,
       trafficLightPosition: {
-        x: 10,
+        x: 8,
         y: 13,
       },
       titleBarStyle: 'hidden',

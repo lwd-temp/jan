@@ -70,7 +70,7 @@ const TopBar = () => {
 
   return (
     <Fragment>
-      <div className="drag fixed left-0 top-0 h-10 w-full border border-border">
+      <div className="drag fixed left-0 top-0 h-10 w-full border border-border bg-background">
         <div
           className={twMerge(
             'flex h-full items-center',
@@ -84,8 +84,9 @@ const TopBar = () => {
           </div>
         </div>
       </div>
+
       {/* Showing custom toolbar on windows */}
-      {!isMac && window.electronAPI && (
+      {isMac && window.electronAPI && (
         <div className="fixed right-0 top-0 flex h-10 items-center overflow-hidden">
           <div
             className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
