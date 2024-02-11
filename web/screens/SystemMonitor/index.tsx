@@ -41,9 +41,9 @@ export default function SystemMonitorScreen() {
   const cpuUsage = useAtomValue(cpuUsageAtom)
   const { activeModel, stateModel, stopModel } = useActiveModel()
   const [serverEnabled, setServerEnabled] = useAtom(serverEnabledAtom)
-  const setTheme = useSetAtom(themeAtom)
+  const setThemeState = useSetAtom(themeAtom)
   const themeOption = useAtomValue(themeOptionsAtom)
-  const { test } = useThemes()
+  const { setTheme } = useThemes()
 
   return (
     <div className="flex h-full w-full bg-background dark:bg-background">
@@ -55,19 +55,19 @@ export default function SystemMonitorScreen() {
             numquam ut eligendi magni laborum, laudantium doloremque
             perferendis, totam quidem aliquam!
           </p>
-          {themeOption.map((x, i) => {
+          {themeOption.map((themeName, i) => {
             return (
               <Button
                 themes="primary"
                 key={i}
                 className="mx-4"
                 onClick={() => {
-                  setTheme(x)
-                  localStorage.setItem(janTheme, x)
-                  test(x)
+                  setThemeState(themeName)
+                  localStorage.setItem(janTheme, themeName)
+                  setTheme(themeName)
                 }}
               >
-                {x}
+                {themeName}
               </Button>
             )
           })}

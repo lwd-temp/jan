@@ -1,12 +1,7 @@
 import { Fragment } from 'react'
 
 import { Tooltip } from '@janhq/joi'
-// import {
-//   Tooltip,
-//   TooltipContent,
-//   TooltipTrigger,
-//   TooltipArrow,
-// } from '@janhq/uikit'
+
 import { motion as m } from 'framer-motion'
 
 import { useAtom } from 'jotai'
