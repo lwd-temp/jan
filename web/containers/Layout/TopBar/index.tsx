@@ -231,8 +231,13 @@ const TopBar = () => {
     //   )}
     //   <CommandSearch />
     // </div>
-    <div className="fixed left-0 top-0 h-12 w-full bg-red-200">
-      <div className={twMerge('flex h-full items-center', isMac && 'pl-20')}>
+    <div className="fixed left-0 top-0 h-11 w-full bg-red-200">
+      <div
+        className={twMerge(
+          'flex h-full items-center',
+          isMac ? 'pl-20' : 'pl-4'
+        )}
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
           laboriosam.

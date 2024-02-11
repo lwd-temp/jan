@@ -23,12 +23,11 @@ export class WindowManager {
       width: 1200,
       minWidth: 1200,
       height: 800,
-      show: true,
       trafficLightPosition: {
         x: 10,
         y: 14,
       },
-      frame: false,
+      titleBarStyle: 'hidden',
       ...options,
     })
     return this.currentWindow
