@@ -1,7 +1,7 @@
 @import "../../styles/bases.scss";
 
 .scroll-area {
-  @apply relative overflow-hidden;
+  @apply relative;
 
   &-viewport {
     @apply h-full w-full rounded-[inherit];

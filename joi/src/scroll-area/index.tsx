@@ -32,16 +32,13 @@ const ScrollBar = forwardRef<
     className={twMerge(
       "scroll-bar",
       orientation === "vertical" && "scroll-bar-vertical",
-      orientation === "horizontal" && "scroll-bar-vertical ",
+      orientation === "horizontal" && "scroll-bar-horizontal ",
       className
     )}
     {...props}
   >
     <ScrollAreaPrimitive.ScrollAreaThumb
-      className={twMerge(
-        "scroll-bar-thumb",
-        orientation === "vertical" && "flex-1"
-      )}
+      className={twMerge("scroll-bar-thumb flex-1")}
     />
   </ScrollAreaPrimitive.ScrollAreaScrollbar>
 ));

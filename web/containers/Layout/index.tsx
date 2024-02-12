@@ -4,9 +4,9 @@ import { useTheme } from 'next-themes'
 
 import { motion as m } from 'framer-motion'
 
-import BottomBar from '@/containers/Layout/BottomBar'
-import TopBar from '@/containers/Layout/TopBar'
+import BottomBar from '@/containers/BottomBar'
 import RibbonNav from '@/containers/RibbonNav'
+import TopBar from '@/containers/TopBar'
 
 import { MainViewState } from '@/constants/screens'
 

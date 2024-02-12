@@ -67,11 +67,11 @@ export default function RibbonNav() {
   }
 
   return (
-    <div className={styles.ribbonNav}>
+    <div className={twMerge(styles.ribbonNav, 'top-10 h-[calc(100vh-40px)]')}>
       <div className={styles.wrapper}>
         <div>
           {isMac && (
-            <div className="mb-2 mt-10">
+            <div className="my-2">
               <LogoMark width={28} height={28} className="mx-auto" />
             </div>
           )}

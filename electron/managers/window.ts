@@ -21,8 +21,10 @@ export class WindowManager {
   createWindow(options?: Electron.BrowserWindowConstructorOptions | undefined) {
     this.currentWindow = new BrowserWindow({
       width: 1200,
-      minWidth: 1200,
       height: 800,
+      // min width and height based on iphone SE
+      minWidth: 375,
+      minHeight: 667,
       trafficLightPosition: {
         x: 8,
         y: 13,

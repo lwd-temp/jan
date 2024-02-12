@@ -2,5 +2,18 @@
   @apply flex h-full;
 
   .leftPanel {
+    background-color: hsl(var(--setting-left-panel-bg));
+    color: hsl(var(--setting-left-panel-fg));
+  }
+
+  .resizeHandler {
+    @apply lg:block;
+    position: relative;
+    border-right: 1px solid hsl(var(--setting-left-panel-border));
+  }
+
+  .menuActive {
+    @apply absolute inset-0 -left-3 h-full w-[calc(100%+24px)] rounded-md;
+    background-color: hsl(var(--setting-left-panel-active-bg));
   }
 }

@@ -11,15 +11,14 @@ import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 
 import CommandListDownloadedModel from '@/containers/CommandListDownloadedModel'
-import DownloadingState from '@/containers/Layout/BottomBar/DownloadingState'
-
-import SystemItem from '@/containers/Layout/BottomBar/SystemItem'
+import DownloadingState from '@/containers/DownloadingState'
 import ProgressBar from '@/containers/ProgressBar'
 
 import { appDownloadProgress } from '@/containers/Providers/Jotai'
 
 import { showSelectModelModalAtom } from '@/containers/Providers/KeyListener'
 import ShortCut from '@/containers/Shortcut'
+import SystemItem from '@/containers/SystemItem'
 
 import { MainViewState } from '@/constants/screens'
 

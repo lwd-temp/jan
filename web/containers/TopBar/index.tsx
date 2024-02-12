@@ -67,7 +67,7 @@ const TopBar = () => {
         className={twMerge(
           styles.topBar,
           // Conditional padding bc only mac have trafficlight icon
-          isMac ? 'pl-20' : 'pl-4'
+          isMac ? 'pl-24' : 'pl-4'
         )}
       >
         <div className="inline-flex h-full items-center space-x-4">
@@ -79,21 +79,21 @@ const TopBar = () => {
 
       {/* Showing custom toolbar on windows and if app render on app platfrom */}
       {!isMac && window.electronAPI && (
-        <div className="fixed right-0 top-0 flex h-10 items-center overflow-hidden">
+        <div className="fixed right-0 top-0 z-40 flex h-10 items-center overflow-hidden">
           <div
-            className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            className="flex h-full flex-shrink-0 items-center justify-center px-3"
             onClick={() => window.electronAPI.minimizeApp()}
           >
             <MinusIcon size={16} />
           </div>
           <div
-            className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            className="flex h-full flex-shrink-0 items-center justify-center px-3"
             onClick={() => window.electronAPI.maximizeApp()}
           >
             <SquareIcon size={14} />
           </div>
           <div
-            className="unset-drag hover:bg-red flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"
+            className="flex h-full flex-shrink-0 items-center justify-center px-3"
             onClick={() => window.electronAPI.closeApp()}
           >
             <XIcon size={16} />

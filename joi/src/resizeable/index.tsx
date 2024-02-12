@@ -9,10 +9,7 @@ const ResizablePanelGroup = ({
   className,
   ...props
 }: ComponentProps<typeof ResizablePrimitive.PanelGroup>) => (
-  <ResizablePrimitive.PanelGroup
-    className={twMerge("", className)}
-    {...props}
-  />
+  <ResizablePrimitive.PanelGroup className={className} {...props} />
 );
 
 const ResizablePanel = ResizablePrimitive.Panel;
@@ -26,7 +23,7 @@ function ResizableHandle({
 }) {
   return (
     <ResizablePrimitive.PanelResizeHandle
-      className={twMerge("", className)}
+      className={className}
       {...props}
     ></ResizablePrimitive.PanelResizeHandle>
   );
