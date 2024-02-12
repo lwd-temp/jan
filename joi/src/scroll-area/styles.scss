@@ -1,0 +1,23 @@
+@import "../../styles/bases.scss";
+
+.scroll-area {
+  @apply relative overflow-hidden;
+
+  &-viewport {
+    @apply h-full w-full rounded-[inherit];
+  }
+}
+
+.scroll-bar {
+  @apply flex touch-none select-none transition-all;
+  &-vertical {
+    @apply h-full w-2.5 border-l border-l-transparent p-[1px];
+  }
+  &-horizontal {
+    @apply h-2.5 flex-col border-t border-t-transparent p-[1px];
+  }
+  &-thumb {
+    @apply relative z-50 w-[10px] rounded-full;
+    background-color: hsl(var(--default-scroll-bar));
+  }
+}

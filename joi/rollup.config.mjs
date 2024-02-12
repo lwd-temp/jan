@@ -43,6 +43,12 @@ export default [
     watch: {
       clearScreen: false,
     },
-    external: ["react", "react-dom", "tailwindcss", "class-variance-authority"],
+    external: [
+      "react",
+      "react-dom",
+      "tailwindcss",
+      "class-variance-authority",
+      "react-resizable-panels",
+    ],
   },
 ];

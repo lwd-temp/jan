@@ -9,23 +9,26 @@
   // --default-fg-base: 0, 0%, 100%; // #FFF
 
   // --default-border: 240, 5%, 96%; // #F4F4F5
+
+  // --default-scroll-bar: 240, 5%, 96%; // #F4F4F5
 }
 
 // Jan light
 
-// --default-border: 240, 5%, 96%,
-
-// --app-wrapper-bg: 0, 0%, 100%;
-// --app-wrapper-fg: 0, 0%, 0%;
-
-// --tooltip-bg: 0, 0%, 0%;
-// --tooltip-fg: 0, 0%, 100%;
-// --tooltip-radius: 4px;
-
-// --top-bar-bg: 0, 0%, 100%
-// --top-bar-fg: 0, 0%, 0%;
-// --top-bar-border: 240, 5%, 96%;
-
-// --ribbon-nav-bg: 0, 0%, 100%
-// --ribbon-nav-fg: 0, 0%, 0%;
-// --ribbon-nav-border: 240, 5%, 96%;
+// :root {
+//   --app-wrapper-bg: 0, 0%, 100%;
+//   --app-wrapper-fg: 0, 0%, 0%;
+//   --default-border: 240, 5%, 96%;
+//   --ribbon-nav-bg: 0, 0%, 100%;
+//   --ribbon-nav-border: 240, 5%, 96%;
+//   --ribbon-nav-fg: 0, 0%, 0%;
+//   --ribbon-nav-icon-active-bg: 240, 5%, 96%;
+//   --ribbon-nav-icon-active-fg: 0, 0%, 0%;
+//   --ribbon-nav-icon-normal: 240, 4%, 46%;
+//   --tooltip-bg: 0, 0%, 0%;
+//   --tooltip-fg: 0, 0%, 100%;
+//   --tooltip-radius: 6px;
+//   --top-bar-bg: 0, 0%, 100%;
+//   --top-bar-border: 240, 5%, 96%;
+//   --top-bar-fg: 0, 0%, 0%;
+// }
