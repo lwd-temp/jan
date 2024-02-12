@@ -10,10 +10,10 @@ import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 
+import CommandListDownloadedModel from '@/containers/CommandListDownloadedModel'
 import DownloadingState from '@/containers/Layout/BottomBar/DownloadingState'
 
 import SystemItem from '@/containers/Layout/BottomBar/SystemItem'
-import CommandListDownloadedModel from '@/containers/Layout/TopBar/CommandListDownloadedModel'
 import ProgressBar from '@/containers/ProgressBar'
 
 import { appDownloadProgress } from '@/containers/Providers/Jotai'

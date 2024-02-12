@@ -14,6 +14,8 @@ import { useMainViewState } from '@/hooks/useMainViewState'
 
 import { SUCCESS_SET_NEW_DESTINATION } from '@/screens/Settings/Advanced/DataFolder'
 
+import styles from './layout.module.scss'
+
 const BaseLayout = (props: PropsWithChildren) => {
   const { children } = props
   const { mainViewState, setMainViewState } = useMainViewState()
@@ -31,11 +33,11 @@ const BaseLayout = (props: PropsWithChildren) => {
   }, [setMainViewState])
 
   return (
-    <div className="app-wrapper">
+    <div className={styles.layoutWrapper}>
+      <TopBar />
       <RibbonNav />
       <div className="relative top-10 flex h-[calc(100vh-80px)] w-full overflow-hidden bg-background">
         <div className="w-full">
-          <TopBar />
           <m.div
             key={mainViewState}
             initial={{ opacity: 0, y: -8 }}
@@ -50,9 +52,9 @@ const BaseLayout = (props: PropsWithChildren) => {
           >
             {children}
           </m.div>
-          <BottomBar />
         </div>
       </div>
+      {/* <BottomBar /> */}
     </div>
   )
 }

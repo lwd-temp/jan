@@ -1,54 +1,47 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
-import { useAtom, useAtomValue } from 'jotai'
-import {
-  PenSquareIcon,
-  MoreVerticalIcon,
-  FolderOpenIcon,
-  Code2Icon,
-  PanelLeftCloseIcon,
-  PanelRightCloseIcon,
-  MinusIcon,
-  XIcon,
-  SquareIcon,
-} from 'lucide-react'
+// import { useAtom, useAtomValue } from 'jotai'
+import { MinusIcon, XIcon, SquareIcon } from 'lucide-react'
 
 import { twMerge } from 'tailwind-merge'
 
 import LogoMark from '@/containers/Brand/Logo/Mark'
-import CommandSearch from '@/containers/Layout/TopBar/CommandSearch'
+// import CommandSearch from '@/containers/CommandSearch'
 
-import { showLeftSideBarAtom } from '@/containers/Providers/KeyListener'
+// import { showLeftSideBarAtom } from '@/containers/Providers/KeyListener'
 
 import { MainViewState } from '@/constants/screens'
 
-import { useClickOutside } from '@/hooks/useClickOutside'
-import { useCreateNewThread } from '@/hooks/useCreateNewThread'
 import { useMainViewState } from '@/hooks/useMainViewState'
 
-import { usePath } from '@/hooks/usePath'
+// import { useClickOutside } from '@/hooks/useClickOutside'
+// import { useCreateNewThread } from '@/hooks/useCreateNewThread'
 
-import { showRightSideBarAtom } from '@/screens/Chat/Sidebar'
+// import { usePath } from '@/hooks/usePath'
 
-import { openFileTitle } from '@/utils/titleUtils'
+// import { showRightSideBarAtom } from '@/screens/Chat/Sidebar'
 
-import { assistantsAtom } from '@/helpers/atoms/Assistant.atom'
-import { activeThreadAtom } from '@/helpers/atoms/Thread.atom'
+// import { openFileTitle } from '@/utils/titleUtils'
+
+import styles from './topBar.module.scss'
+
+// import { assistantsAtom } from '@/helpers/atoms/Assistant.atom'
+// import { activeThreadAtom } from '@/helpers/atoms/Thread.atom'
 
 const TopBar = () => {
-  const activeThread = useAtomValue(activeThreadAtom)
   const { mainViewState } = useMainViewState()
-  const { requestCreateNewThread } = useCreateNewThread()
-  const assistants = useAtomValue(assistantsAtom)
-  const [showRightSideBar, setShowRightSideBar] = useAtom(showRightSideBarAtom)
-  const [showLeftSideBar, setShowLeftSideBar] = useAtom(showLeftSideBarAtom)
-  const showing = useAtomValue(showRightSideBarAtom)
-  const { onReviewInFinder, onViewJson } = usePath()
-  const [more, setMore] = useState(false)
-  const [menu, setMenu] = useState<HTMLDivElement | null>(null)
-  const [toggle, setToggle] = useState<HTMLDivElement | null>(null)
+  // const activeThread = useAtomValue(activeThreadAtom)
+  // const { requestCreateNewThread } = useCreateNewThread()
+  // const assistants = useAtomValue(assistantsAtom)
+  // const [showRightSideBar, setShowRightSideBar] = useAtom(showRightSideBarAtom)
+  // const [showLeftSideBar, setShowLeftSideBar] = useAtom(showLeftSideBarAtom)
+  // const showing = useAtomValue(showRightSideBarAtom)
+  // const { onReviewInFinder, onViewJson } = usePath()
+  // const [more, setMore] = useState(false)
+  // const [menu, setMenu] = useState<HTMLDivElement | null>(null)
+  // const [toggle, setToggle] = useState<HTMLDivElement | null>(null)
 
-  useClickOutside(() => setMore(false), null, [menu, toggle])
+  // useClickOutside(() => setMore(false), null, [menu, toggle])
 
   const titleScreen = (viewStateName: MainViewState) => {
     switch (viewStateName) {
@@ -60,33 +53,32 @@ const TopBar = () => {
     }
   }
 
-  const onCreateConversationClick = async () => {
-    if (assistants.length === 0) {
-      alert('No assistant available')
-    } else {
-      requestCreateNewThread(assistants[0])
-    }
-  }
+  // const onCreateConversationClick = async () => {
+  //   if (assistants.length === 0) {
+  //     alert('No assistant available')
+  //   } else {
+  //     requestCreateNewThread(assistants[0])
+  //   }
+  // }
 
   return (
     <Fragment>
-      <div className="drag fixed left-0 top-0 h-10 w-full border-b border-border bg-background">
-        <div
-          className={twMerge(
-            'flex h-full items-center',
-            // Conditional padding bc only mac have trafficlight icon
-            isMac ? 'pl-20' : 'pl-4'
-          )}
-        >
-          <div className="flex items-center space-x-4">
-            {!isMac && <LogoMark width={20} height={20} className="mx-auto" />}
-            <h1 className="text-sm font-bold">{titleScreen(mainViewState)}</h1>
-          </div>
+      <div
+        className={twMerge(
+          styles.topBar,
+          // Conditional padding bc only mac have trafficlight icon
+          isMac ? 'pl-20' : 'pl-4'
+        )}
+      >
+        <div className="inline-flex h-full items-center space-x-4">
+          {/* Showing logo on top bar for windows since logo mark on ribbon nav will be hide for windows */}
+          {!isMac && <LogoMark width={20} height={20} className="mx-auto" />}
+          <h1 className="font-bold">{titleScreen(mainViewState)}</h1>
         </div>
       </div>
 
-      {/* Showing custom toolbar on windows */}
-      {isMac && window.electronAPI && (
+      {/* Showing custom toolbar on windows and if app render on app platfrom */}
+      {!isMac && window.electronAPI && (
         <div className="fixed right-0 top-0 flex h-10 items-center overflow-hidden">
           <div
             className="unset-drag flex h-full flex-shrink-0 items-center justify-center px-3 hover:bg-secondary"

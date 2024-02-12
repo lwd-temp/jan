@@ -1,0 +1,14 @@
+// token color
+// --top-bar-bg
+// --top-bar-fg
+// --top-bar-border
+
+.topBar {
+  background-color: hsl(var(--top-bar-bg));
+  color: hsl(var(--top-bar-fg));
+  border-color: hsl(var(--top-bar-border, var(--default-border)));
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+  z-index: 40;
+  @apply fixed left-0 top-0 h-10 w-full border-b;
+}

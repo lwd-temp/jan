@@ -1,10 +1,31 @@
 :root {
-  // Radius
-  --default-radius-small: 4px;
-  --default-radius-medium: 6px;
-  --default-radius-large: 8px;
+  // radius
+  // --default-radius-small: 4px;
+  // --default-radius-medium: 6px;
+  // --default-radius-large: 8px;
 
-  // Token color
-  --default-bg-base: 0, 0%, 0%; // black
-  --default-fg-base: 0, 0%, 100%; // white
+  // // background and Forground
+  // --default-bg-base: 0, 0%, 0%; // #000
+  // --default-fg-base: 0, 0%, 100%; // #FFF
+
+  // --default-border: 240, 5%, 96%; // #F4F4F5
 }
+
+// Jan light
+
+// --default-border: 240, 5%, 96%,
+
+// --app-wrapper-bg: 0, 0%, 100%;
+// --app-wrapper-fg: 0, 0%, 0%;
+
+// --tooltip-bg: 0, 0%, 0%;
+// --tooltip-fg: 0, 0%, 100%;
+// --tooltip-radius: 4px;
+
+// --top-bar-bg: 0, 0%, 100%
+// --top-bar-fg: 0, 0%, 0%;
+// --top-bar-border: 240, 5%, 96%;
+
+// --ribbon-nav-bg: 0, 0%, 100%
+// --ribbon-nav-fg: 0, 0%, 0%;
+// --ribbon-nav-border: 240, 5%, 96%;

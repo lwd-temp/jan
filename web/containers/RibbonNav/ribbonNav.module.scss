@@ -1,0 +1,30 @@
+// token color
+// --ribbon-nav-bg
+// --ribbon-nav-fg
+// --ribbon-nav-border
+
+// --ribbon-nav-icon-normal
+// --ribbon-nav-icon-active-fg
+// --ribbon-nav-icon-active-bg
+
+.ribbonNav {
+  @apply relative flex w-[72px] flex-shrink-0 flex-col border-r py-4;
+  border-color: hsl(var(--ribbon-nav-border, var(--default-border)));
+  background-color: hsl(var(--ribbon-nav-bg));
+  color: hsl(var(--ribbon-nav-fg));
+
+  .icon {
+    @apply relative flex w-full flex-shrink-0 cursor-pointer items-center justify-center;
+    color: hsl(var(--ribbon-nav-icon-normal));
+  }
+
+  .iconIsActive {
+    color: hsl(var(--ribbon-nav-icon-active-fg));
+    z-index: 10;
+  }
+
+  .statePointer {
+    @apply absolute inset-0 left-0 h-full w-full rounded-md;
+    background-color: hsl(var(--ribbon-nav-icon-active-bg));
+  }
+}
