@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from 'react'
 
-import { ScrollArea } from '@janhq/uikit'
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+  ScrollArea,
+} from '@janhq/joi'
+
 import { motion as m } from 'framer-motion'
 
 import { twMerge } from 'tailwind-merge'
@@ -14,6 +20,8 @@ import ExtensionCatalog from '@/screens/Settings/CoreExtensions'
 import Models from '@/screens/Settings/Models'
 
 import { SUCCESS_SET_NEW_DESTINATION } from './Advanced/DataFolder'
+
+import styles from './settings.module.scss'
 
 const SettingsScreen = () => {
   const [activeStaticMenu, setActiveStaticMenu] = useState('My Models')
@@ -54,11 +62,66 @@ const SettingsScreen = () => {
   }, [])
 
   return (
-    <div
-      className="flex h-full bg-background"
-      data-testid="testid-setting-description"
-    >
-      <div className="flex h-full w-64 flex-shrink-0 flex-col overflow-y-auto border-r border-border">
+    <div className={styles.settings} data-testid="testid-setting-description">
+      <ResizablePanelGroup direction="horizontal">
+        <ResizablePanel
+          minSize={6}
+          maxSize={40}
+          defaultSize={22}
+          onResize={(size) => console.log(size)}
+        >
+          <ScrollArea className="h-full">
+            <div className="p-4">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Repudiandae facere officia iure expedita aut. Mollitia
+                exercitationem veritatis enim inventore? Ad voluptas molestiae
+                debitis voluptatum ullam quaerat, quisquam a provident vero?
+              </p>
+            </div>
+          </ScrollArea>
+        </ResizablePanel>
+        <ResizableHandle className="w-[1px] border-r border-gray-200" />
+        <ResizablePanel className="p-4">Two</ResizablePanel>
+      </ResizablePanelGroup>
+
+      {/* <div className="border-border flex h-full w-64 flex-shrink-0 flex-col overflow-y-auto border-r">
         <ScrollArea className="h-full w-full">
           <div className="px-6 py-4">
             <div className="flex-shrink-0">
@@ -80,7 +143,7 @@ const SettingsScreen = () => {
                       </div>
                       {isActive && (
                         <m.div
-                          className="absolute inset-0 -left-3 h-full w-[calc(100%+24px)] rounded-md bg-primary/50"
+                          className="bg-primary/50 absolute inset-0 -left-3 h-full w-[calc(100%+24px)] rounded-md"
                           layoutId="active-static-menu"
                         />
                       )}
@@ -91,15 +154,15 @@ const SettingsScreen = () => {
             </div>
           </div>
         </ScrollArea>
-      </div>
+      </div> */}
 
-      <div className="h-full w-full bg-background">
+      {/* <div className="bg-background h-full w-full">
         <ScrollArea className="h-full w-full">
           <div className="p-4">
             {handleShowOptions(activeStaticMenu || activePreferenceExtension)}
           </div>
         </ScrollArea>
-      </div>
+      </div> */}
     </div>
   )
 }

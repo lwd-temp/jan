@@ -68,7 +68,7 @@ export default function RibbonNav() {
 
   return (
     <div className={styles.ribbonNav}>
-      <div className="flex h-full w-full flex-col items-center justify-between">
+      <div className={styles.wrapper}>
         <div>
           {isMac && (
             <div className="mb-2 mt-10">
@@ -80,6 +80,7 @@ export default function RibbonNav() {
             .filter((primary) => !!primary)
             .map((primary, i) => {
               const isActive = mainViewState === primary.state
+
               return (
                 <div className="relative flex p-2" key={i}>
                   <Tooltip

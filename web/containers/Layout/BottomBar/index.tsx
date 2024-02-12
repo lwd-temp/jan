@@ -29,6 +29,8 @@ import { modelDownloadStateAtom } from '@/hooks/useDownloadState'
 import useGetSystemResources from '@/hooks/useGetSystemResources'
 import { useMainViewState } from '@/hooks/useMainViewState'
 
+import styles from './bottomBar.module.scss'
+
 import { serverEnabledAtom } from '@/helpers/atoms/LocalServer.atom'
 import { downloadedModelsAtom } from '@/helpers/atoms/Model.atom'
 
@@ -75,7 +77,7 @@ const BottomBar = () => {
   }
 
   return (
-    <div className="border-border bg-background/80 fixed bottom-0 left-[72px] z-20 flex h-10 w-[calc(100%-72px)] items-center justify-between border-t px-3">
+    <div className={styles.bottomBar}>
       {/* <div className="flex flex-shrink-0 items-center gap-x-2">
         <div className="flex items-center space-x-2">
           {progress && progress > 0 ? (

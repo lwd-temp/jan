@@ -36,7 +36,7 @@ const BaseLayout = (props: PropsWithChildren) => {
     <div className={styles.layoutWrapper}>
       <TopBar />
       <RibbonNav />
-      <div className="relative top-10 flex h-[calc(100vh-80px)] w-full overflow-hidden bg-background">
+      <div className="relative top-10 flex h-[calc(100vh-80px)] w-full overflow-hidden">
         <div className="w-full">
           <m.div
             key={mainViewState}
@@ -54,7 +54,7 @@ const BaseLayout = (props: PropsWithChildren) => {
           </m.div>
         </div>
       </div>
-      {/* <BottomBar /> */}
+      <BottomBar />
     </div>
   )
 }

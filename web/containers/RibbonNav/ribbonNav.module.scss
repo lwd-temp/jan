@@ -3,7 +3,7 @@
 // --ribbon-nav-fg
 // --ribbon-nav-border
 
-// --ribbon-nav-icon-normal
+// --ribbon-nav-icon-fg
 // --ribbon-nav-icon-active-fg
 // --ribbon-nav-icon-active-bg
 
@@ -13,9 +13,13 @@
   background-color: hsl(var(--ribbon-nav-bg));
   color: hsl(var(--ribbon-nav-fg));
 
+  .wrapper {
+    @apply flex h-full w-full flex-col items-center justify-between;
+  }
+
   .icon {
     @apply relative flex w-full flex-shrink-0 cursor-pointer items-center justify-center;
-    color: hsl(var(--ribbon-nav-icon-normal));
+    color: hsl(var(--ribbon-nav-icon-fg));
   }
 
   .iconIsActive {

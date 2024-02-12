@@ -1,0 +1,4 @@
+.bottomBar {
+  @apply fixed bottom-0 left-[72px] z-20 flex h-10 w-[calc(100%-72px)] items-center justify-between border-t;
+  border-color: hsl(var(--default-border));
+}

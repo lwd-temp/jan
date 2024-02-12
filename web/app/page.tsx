@@ -22,9 +22,9 @@ export default function Page() {
     //   children = <ExploreModelsScreen />
     //   break
 
-    // case MainViewState.Settings:
-    //   children = <SettingsScreen />
-    //   break
+    case MainViewState.Settings:
+      children = <SettingsScreen />
+      break
 
     case MainViewState.SystemMonitor:
       children = <SystemMonitorScreen />
@@ -34,9 +34,9 @@ export default function Page() {
     //   children = <LocalServerScreen />
     //   break
 
-    // default:
-    //   children = <ChatScreen />
-    //   break
+    default:
+      children = <SettingsScreen />
+      break
   }
 
   return <BaseLayout>{children}</BaseLayout>
