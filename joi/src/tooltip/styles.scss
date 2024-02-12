@@ -1,12 +1,17 @@
 @import "../../styles/bases.scss";
 
+// tooltip token color
+// --tooltip-bg
+// --tooltip-fg
+// --tooltip-radius
+
 .tooltip {
-  background-color: hsl(var(--bg-base));
-  color: hsl(var(--fg-base));
-  border-radius: var(--radius-medium);
-  @apply max-w-80 px-3 py-2;
+  background-color: hsl(var(--tooltip-bg, var(--default-bg-base)));
+  color: hsl(var(--tooltip-fg, var(--default-fg-base)));
+  border-radius: var(--tooltip-radius, var(--default-radius-medium));
+  @apply max-w-80 px-3 py-2 z-50;
 
   &--arrow {
-    fill: hsl(var(--bg-base));
+    fill: hsl(var(--tooltip-bg, var(--default-bg-base)));
   }
 }

@@ -70,7 +70,7 @@ const TopBar = () => {
 
   return (
     <Fragment>
-      <div className="fixed left-0 top-0 h-10 w-full border-b border-border bg-background">
+      <div className="drag fixed left-0 top-0 h-10 w-full border-b border-border bg-background">
         <div
           className={twMerge(
             'flex h-full items-center',
