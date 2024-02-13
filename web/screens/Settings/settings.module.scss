@@ -18,12 +18,18 @@
   }
 
   .listItem {
-    @apply flex w-full flex-col items-start justify-between border-b py-4 sm:flex-row;
+    @apply flex w-full items-start justify-between py-4;
+    border-bottom: 1px solid
+      hsl(var(--setting-list-item-border, var(--default-border)));
   }
 
   .listItemTitle {
     @apply font-bold capitalize;
     color: hsl(var(--setting-list-item-title, var(--default-text-heading)));
+  }
+
+  .listItemWrapper {
+    @apply w-full space-y-1 pr-6 md:pr-10;
   }
 
   .listItemDescription {

@@ -95,7 +95,7 @@ const ExtensionCatalog = () => {
       })}
       {/* Manual Installation */}
       <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
-        <div className="w-full space-y-1">
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
             <h6 className={styles.listItemTitle}>Manual Installation</h6>
           </div>

@@ -5,9 +5,13 @@ import { Button, Input } from '@janhq/uikit'
 import { useSetAtom } from 'jotai'
 import { PencilIcon, FolderOpenIcon } from 'lucide-react'
 
+import { twMerge } from 'tailwind-merge'
+
 import Loader from '@/containers/Loader'
 
 export const SUCCESS_SET_NEW_DESTINATION = 'successSetNewDestination'
+
+import styles from '../../settings.module.scss'
 
 import ModalChangeDirectory, {
   showDirectoryConfirmModalAtom,
@@ -102,19 +106,21 @@ const DataFolder = () => {
 
   return (
     <Fragment>
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
-          <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">
-              Jan Data Folder
-            </h6>
-          </div>
-          <p className="leading-relaxed">
+      <div
+        className={twMerge(
+          'first:pt-0 last:border-none',
+          styles.listItem,
+          '!md:flex-col'
+        )}
+      >
+        <div className="w-full space-y-1">
+          <h6 className={styles.listItemTitle}>Jan Data Folder</h6>
+          <p className={styles.listItemDescription}>
             Where messages, model configurations, and other user data are
             placed.
           </p>
         </div>
-        <div className="flex items-center gap-x-3">
+        <div className="mt-4 flex items-center gap-x-3 lg:mt-0">
           <div className="relative">
             <Input
               value={janDataFolderPath}

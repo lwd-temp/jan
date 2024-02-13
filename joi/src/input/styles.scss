@@ -1,0 +1,14 @@
+@import "../../styles/bases.scss";
+
+.input {
+  // @apply border-border placeholder:text-muted-foreground flex h-9 w-full rounded-lg border bg-transparent px-3 py-1 transition-colors;
+  // @apply disabled:text-muted-foreground disabled:cursor-not-allowed disabled:bg-zinc-100 disabled:dark:bg-zinc-800 disabled:dark:text-zinc-600;
+  // @apply file:border-0 file:bg-transparent file:font-medium;
+  @apply focus-within:outline-none focus-visible:outline-0 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1;
+  @apply h-9 px-4 w-full;
+  border: 1px solid hsl(var(--default-border));
+  border-radius: var(--default-radius-medium);
+  &:placeholder {
+    color: hsl(var(--defult-text-muted));
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 
+import { Button } from '@janhq/joi'
 import {
   Modal,
   ModalTrigger,
-  Button,
   ModalContent,
   ModalHeader,
   ModalTitle,
@@ -52,7 +52,7 @@ const ShortcutModal: React.FC = () => (
   <Modal>
     <ModalTrigger>
       <div>
-        <Button size="sm" themes="secondaryBlue">
+        <Button size="small" theme="primary" variant="soft">
           Show
         </Button>
       </div>
@@ -62,7 +62,7 @@ const ShortcutModal: React.FC = () => (
         <ModalTitle>Keyboard Shortcuts</ModalTitle>
       </ModalHeader>
       <div className="my-2 flex flex-col items-center justify-center gap-2">
-        <div className="flex w-full gap-4 border-b border-border pb-2">
+        <div className="border-border flex w-full gap-4 border-b pb-2">
           <div className="w-1/2 py-2">
             <h6>Combination</h6>
           </div>
@@ -77,11 +77,11 @@ const ShortcutModal: React.FC = () => (
               className={
                 index === availableShortcuts.length - 1
                   ? 'flex w-full gap-4 pb-2'
-                  : 'flex w-full gap-4 border-b border-border pb-2'
+                  : 'border-border flex w-full gap-4 border-b pb-2'
               }
             >
               <div className="w-1/2 py-2">
-                <div className="inline-flex items-center justify-center rounded-full bg-secondary px-1 py-0.5 text-xs font-bold text-muted-foreground">
+                <div className="bg-secondary text-muted-foreground inline-flex items-center justify-center rounded-full px-1 py-0.5 text-xs font-bold">
                   <p>{`${shortcut.modifierKeys?.[0] ?? ''} ${
                     shortcut.combination
                   }`}</p>

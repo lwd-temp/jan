@@ -1,6 +1,10 @@
-import { Button } from '@janhq/uikit'
+import { Button } from '@janhq/joi'
 
 import { useSetAtom } from 'jotai'
+
+import { twMerge } from 'tailwind-merge'
+
+import styles from '../../settings.module.scss'
 
 import ModalValidation, { modalValidationAtom } from './ModalConfirmReset'
 
@@ -8,14 +12,10 @@ const FactoryReset = () => {
   const setModalValidation = useSetAtom(modalValidationAtom)
 
   return (
-    <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-      <div className="w-4/5 flex-shrink-0 space-y-1.5">
-        <div className="flex gap-x-2">
-          <h6 className="text-sm font-semibold capitalize">
-            Reset to Factory Default
-          </h6>
-        </div>
-        <p className="whitespace-pre-wrap leading-relaxed">
+    <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+      <div className={styles.listItemWrapper}>
+        <h6 className={styles.listItemTitle}>Reset to Factory Default</h6>
+        <p className={styles.listItemDescription}>
           Reset the application to its original state, deleting all your usage
           data, including model customizations and conversation history. This
           action is irreversible and recommended only if the application is in a
@@ -23,8 +23,9 @@ const FactoryReset = () => {
         </p>
       </div>
       <Button
-        size="sm"
-        themes="secondaryDanger"
+        size="small"
+        theme="destructive"
+        variant="soft"
         onClick={() => setModalValidation(true)}
       >
         Reset

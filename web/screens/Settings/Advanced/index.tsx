@@ -11,25 +11,9 @@ import {
 import { openExternalUrl } from '@janhq/core'
 
 import { fs } from '@janhq/core'
-import {
-  Switch,
-  Button,
-  Input,
-  Select,
-  Checkbox,
-  SelectContent,
-  SelectGroup,
-  SelectPortal,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Switch, Button, Input } from '@janhq/joi'
 
-import { AlertTriangleIcon, AlertCircleIcon } from 'lucide-react'
+import { twMerge } from 'tailwind-merge'
 
 import ShortcutModal from '@/containers/ShortcutModal'
 
@@ -38,6 +22,8 @@ import { snackbar, toaster } from '@/containers/Toast'
 import { FeatureToggleContext } from '@/context/FeatureToggle'
 
 import { useSettings } from '@/hooks/useSettings'
+
+import styles from '../settings.module.scss'
 
 import DataFolder from './DataFolder'
 import FactoryReset from './FactoryReset'
@@ -120,14 +106,12 @@ const Advanced = () => {
   return (
     <div className="block w-full">
       {/* Keyboard shortcut  */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">
-              Keyboard Shortcuts
-            </h6>
+            <h6 className={styles.listItemTitle}>Keyboard Shortcuts</h6>
           </div>
-          <p className="leading-relaxed">
+          <p className={styles.listItemDescription}>
             Shortcuts that you might find useful in Jan app.
           </p>
         </div>
@@ -135,38 +119,40 @@ const Advanced = () => {
       </div>
 
       {/* Experimental */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">
-              Experimental Mode
-            </h6>
+            <h6 className={styles.listItemTitle}>Experimental Mode</h6>
           </div>
-          <p className="leading-relaxed">
+          <p className={styles.listItemDescription}>
             Enable experimental features that may be unstable tested.
           </p>
         </div>
         <Switch
+          className="mt-4 flex-shrink-0 md:mt-0"
           checked={experimentalFeature}
-          onCheckedChange={setExperimentalFeature}
+          onChange={(e) => setExperimentalFeature(e.target.checked)}
         />
       </div>
 
       {/* CPU / GPU switching */}
       {!isMac && (
-        <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-          <div className="flex-shrink-0 space-y-1.5">
+        <div
+          className={twMerge('first:pt-0 last:border-none', styles.listItem)}
+        >
+          <div className={styles.listItemWrapper}>
             <div className="flex gap-x-2">
-              <h6 className="text-sm font-semibold capitalize">Nvidia GPU</h6>
+              <h6 className={styles.listItemTitle}>Nvidia GPU</h6>
             </div>
-            <p className="leading-relaxed">
+            <p className={styles.listItemDescription}>
               Enable GPU acceleration for Nvidia GPUs.
             </p>
           </div>
           <Switch
+            className="mt-4 flex-shrink-0 md:mt-0"
             checked={gpuEnabled}
-            onCheckedChange={(e) => {
-              if (e === true) {
+            onChange={(e) => {
+              if (e.target.checked === true) {
                 saveSettings({ runMode: 'gpu' })
                 setGpuEnabled(true)
                 setShowNotification(false)
@@ -360,51 +346,74 @@ const Advanced = () => {
           )}
         </div>
       )}
+<<<<<<< HEAD
 
       <DataFolder />
+=======
+      {/* Warning message */}
+      {gpuEnabled && gpusInUse.length > 1 && (
+        <p className="mt-2 italic text-red-500">
+          If enabling multi-GPU without the same GPU model or without NVLink, it
+          may affect token speed.
+        </p>
+      )}
+
+      {/* <DataFolder /> */}
+
+>>>>>>> 44512a48d (update setting responsive area)
       {/* Proxy */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">HTTPS Proxy</h6>
+            <h6 className={styles.listItemTitle}>HTTPS Proxy</h6>
           </div>
-          <p className="leading-relaxed">
+          <p className={styles.listItemDescription}>
             Specify the HTTPS proxy or leave blank (proxy auto-configuration and
             SOCKS not supported).
           </p>
-          <Input
-            placeholder={'http://<user>:<password>@<domain or IP>:<port>'}
-            value={partialProxy}
-            onChange={onProxyChange}
-          />
         </div>
+        <Input
+          placeholder={'http://<user>:<password>@<domain or IP>:<port>'}
+          value={partialProxy}
+          onChange={onProxyChange}
+        />
       </div>
 
       {/* Ignore SSL certificates */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">
-              Ignore SSL certificates
-            </h6>
+            <h6 className={styles.listItemTitle}>Ignore SSL certificates</h6>
           </div>
-          <p className="leading-relaxed">
+          <p className={styles.listItemDescription}>
             Allow self-signed or unverified certificates - may be required for
             certain proxies.
           </p>
         </div>
-        <Switch checked={ignoreSSL} onCheckedChange={(e) => setIgnoreSSL(e)} />
+        <Switch
+          className="mt-4 flex-shrink-0 md:mt-0"
+          checked={ignoreSSL}
+          onChange={(e) => setIgnoreSSL(e.target.checked)}
+        />
       </div>
 
       {/* Clear log */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">Clear logs</h6>
+            <h6 className={styles.listItemTitle}>Clear logs</h6>
           </div>
-          <p className="leading-relaxed">Clear all logs from Jan app.</p>
+          <p className={styles.listItemDescription}>
+            Clear all logs from Jan app.
+          </p>
         </div>
-        <Button size="sm" themes="secondaryDanger" onClick={clearLogs}>
+        <Button
+          size="small"
+          className="mt-4 md:mt-0"
+          theme="destructive"
+          variant="soft"
+          onClick={clearLogs}
+        >
           Clear
         </Button>
       </div>
