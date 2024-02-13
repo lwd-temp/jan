@@ -41,7 +41,7 @@ export default function ThreadList() {
         <div className="px-4 py-8 text-center">
           <GalleryHorizontalEndIcon
             size={26}
-            className="mx-auto mb-3 text-muted-foreground"
+            className="text-muted-foreground mx-auto mb-3"
           />
           <h2 className="font-semibold">No Thread History</h2>
         </div>
@@ -50,14 +50,14 @@ export default function ThreadList() {
           <div
             key={thread.id}
             className={twMerge(
-              `group/message relative mb-1 flex cursor-pointer flex-col transition-all hover:rounded-lg hover:bg-gray-100 hover:dark:bg-secondary/50`
+              `group/message hover:dark:bg-secondary/50 relative mb-1 flex cursor-pointer flex-col transition-all hover:rounded-lg hover:bg-gray-100`
             )}
             onClick={() => {
               onThreadClick(thread)
             }}
           >
             <div className="relative z-10 p-4 py-4">
-              <p className="line-clamp-1 text-xs leading-5 text-muted-foreground">
+              <p className="text-muted-foreground line-clamp-1 text-xs leading-5">
                 {thread.updated && displayDate(thread.updated)}
               </p>
               <h2 className="line-clamp-1 font-bold">{thread.title}</h2>
@@ -69,18 +69,18 @@ export default function ThreadList() {
             </div>
             <div
               className={twMerge(
-                `group/icon invisible absolute bottom-2 right-2 z-20 rounded-lg p-1 text-muted-foreground hover:bg-gray-200 group-hover/message:visible hover:dark:bg-secondary`
+                `group/icon text-muted-foreground hover:dark:bg-secondary invisible absolute bottom-2 right-2 z-20 rounded-lg p-1 hover:bg-gray-200 group-hover/message:visible`
               )}
             >
               <MoreVerticalIcon />
-              <div className="invisible absolute right-0 z-20 w-40 overflow-hidden rounded-lg border border-border bg-background shadow-lg group-hover/icon:visible">
+              <div className="border-border bg-background invisible absolute right-0 z-20 w-40 overflow-hidden rounded-lg border shadow-lg group-hover/icon:visible">
                 <CleanThreadModal threadId={thread.id} />
                 <DeleteThreadModal threadId={thread.id} />
               </div>
             </div>
             {activeThreadId === thread.id && (
               <m.div
-                className="absolute inset-0 left-0 h-full w-full rounded-lg bg-gray-100 p-4 dark:bg-secondary/50"
+                className="dark:bg-secondary/50 absolute inset-0 left-0 h-full w-full rounded-lg bg-gray-100 p-4"
                 layoutId="active-thread"
               />
             )}

@@ -1,11 +1,5 @@
-import {
-  Textarea,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
+import { Textarea } from '@janhq/uikit'
 
 import { InfoIcon } from 'lucide-react'
 
@@ -33,17 +27,12 @@ const ModelConfigInput: React.FC<Props> = ({
         <p className="text-sm font-semibold text-zinc-500 dark:text-gray-300">
           {title}
         </p>
-        <Tooltip>
-          <TooltipTrigger asChild>
+        <Tooltip
+          trigger={
             <InfoIcon size={16} className="flex-shrink-0 dark:text-gray-500" />
-          </TooltipTrigger>
-          <TooltipPortal>
-            <TooltipContent side="top" className="max-w-[240px]">
-              <span>{description}</span>
-              <TooltipArrow />
-            </TooltipContent>
-          </TooltipPortal>
-        </Tooltip>
+          }
+          content={description}
+        />
       </div>
       <Textarea
         placeholder={placeholder}

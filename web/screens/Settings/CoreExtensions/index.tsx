@@ -77,16 +77,14 @@ const ExtensionCatalog = () => {
         return (
           <div
             key={i}
-            className={twMerge('first:pt-0 last:border-none', styles.listItem)}
+            className={twMerge('first:!pt-0 last:border-none', styles.listItem)}
           >
-            <div className="w-full space-y-1">
+            <div className={styles.listItemWrapper}>
               <div className="flex items-center gap-x-2">
                 <h6 className={styles.listItemTitle}>
                   {formatExtensionsName(item.name ?? item.description ?? '')}
                 </h6>
-                <p className="font-semibold leading-relaxed ">
-                  v{item.version}
-                </p>
+                <p className="font-semibold leading-relaxed">v{item.version}</p>
               </div>
               <p className={styles.listItemDescription}>{item.description}</p>
             </div>

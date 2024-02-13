@@ -64,11 +64,11 @@ const MessageToolbar = ({ message }: { message: ThreadMessage }) => {
 
   return (
     <div className={twMerge('flex flex-row items-center')}>
-      <div className="flex overflow-hidden rounded-md border border-border bg-background/20">
+      <div className="border-border bg-background/20 flex overflow-hidden rounded-md border">
         {message.role === ChatCompletionRole.User &&
           message.content[0]?.type === ContentType.Text && (
             <div
-              className="cursor-pointer border-r border-border px-2 py-2 hover:bg-background/80"
+              className="border-border hover:bg-background/80 cursor-pointer border-r px-2 py-2"
               onClick={onEditClick}
             >
               <PencilIcon size={14} />
@@ -80,14 +80,14 @@ const MessageToolbar = ({ message }: { message: ThreadMessage }) => {
           messages[messages.length - 1].content[0]?.type !==
             ContentType.Pdf && (
             <div
-              className="cursor-pointer border-r border-border px-2 py-2 hover:bg-background/80"
+              className="border-border hover:bg-background/80 cursor-pointer border-r px-2 py-2"
               onClick={onRegenerateClick}
             >
               <RefreshCcw size={14} />
             </div>
           )}
         <div
-          className="cursor-pointer border-r border-border px-2 py-2 hover:bg-background/80"
+          className="border-border hover:bg-background/80 cursor-pointer border-r px-2 py-2"
           onClick={() => {
             clipboard.copy(message.content[0]?.text?.value ?? '')
           }}
@@ -99,7 +99,7 @@ const MessageToolbar = ({ message }: { message: ThreadMessage }) => {
           )}
         </div>
         <div
-          className="cursor-pointer px-2 py-2 hover:bg-background/80"
+          className="hover:bg-background/80 cursor-pointer px-2 py-2"
           onClick={onDeleteClick}
         >
           <Trash2Icon size={14} />

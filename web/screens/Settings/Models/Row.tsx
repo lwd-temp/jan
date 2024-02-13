@@ -1,14 +1,8 @@
 import { useState } from 'react'
 
 import { InferenceEngine, Model } from '@janhq/core'
-import {
-  Badge,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
+import { Badge } from '@janhq/uikit'
 
 import { useAtom } from 'jotai'
 import {
@@ -62,7 +56,7 @@ export default function RowModel(props: RowModelProps) {
   }
 
   return (
-    <tr className="relative border-b border-border last:border-none">
+    <tr className="border-border relative border-b last:border-none">
       <td className="px-6 py-4 font-bold">{props.data.name}</td>
       <td className="px-6 py-4 font-bold">{props.data.id}</td>
       <td className="px-6 py-4">
@@ -126,14 +120,14 @@ export default function RowModel(props: RowModelProps) {
         )}
         {more && (
           <div
-            className="absolute right-4 top-10 z-20 w-52 overflow-hidden rounded-lg border border-border bg-background py-2 shadow-lg"
+            className="border-border bg-background absolute right-4 top-10 z-20 w-52 overflow-hidden rounded-lg border py-2 shadow-lg"
             ref={setMenu}
           >
-            <Tooltip>
-              <TooltipTrigger className="w-full">
+            <Tooltip
+              trigger={
                 <div
                   className={twMerge(
-                    'flex items-center space-x-2 px-4 py-2 hover:bg-secondary',
+                    'hover:bg-secondary flex items-center space-x-2 px-4 py-2',
                     serverEnabled &&
                       activeModel &&
                       activeModel.id !== props.data.id &&
@@ -152,29 +146,26 @@ export default function RowModel(props: RowModelProps) {
                   ) : (
                     <PlayIcon size={16} className="text-muted-foreground" />
                   )}
-                  <span className="text-bold capitalize text-black dark:text-muted-foreground">
+                  <span className="text-bold dark:text-muted-foreground capitalize text-black">
                     {isActiveModel ? stateModel.state : 'Start'}
                     &nbsp;Model
                   </span>
                 </div>
-              </TooltipTrigger>
-              {serverEnabled && (
-                <TooltipPortal>
-                  <TooltipContent side="top">
-                    <span>
-                      {activeModel && activeModel.id === props.data.id
-                        ? 'The API server is running, change model will stop the server'
-                        : 'Threads are disabled while the server is running'}
-                    </span>
-                    <TooltipArrow />
-                  </TooltipContent>
-                </TooltipPortal>
-              )}
-            </Tooltip>
+              }
+              content={
+                serverEnabled && (
+                  <span>
+                    {activeModel && activeModel.id === props.data.id
+                      ? 'The API server is running, change model will stop the server'
+                      : 'Threads are disabled while the server is running'}
+                  </span>
+                )
+              }
+            />
 
             <div
               className={twMerge(
-                'flex cursor-pointer items-center space-x-2 px-4 py-2 hover:bg-secondary',
+                'hover:bg-secondary flex cursor-pointer items-center space-x-2 px-4 py-2',
                 serverEnabled &&
                   'pointer-events-none cursor-not-allowed opacity-40'
               )}
@@ -189,7 +180,7 @@ export default function RowModel(props: RowModelProps) {
               }}
             >
               <Trash2Icon size={16} className="text-muted-foreground" />
-              <span className="text-bold text-black dark:text-muted-foreground">
+              <span className="text-bold dark:text-muted-foreground text-black">
                 Delete Model
               </span>
             </div>

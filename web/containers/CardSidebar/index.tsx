@@ -43,14 +43,14 @@ export default function CardSidebar({
   return (
     <div
       className={twMerge(
-        'flex w-full flex-col border-t border-border bg-zinc-100 dark:bg-zinc-900',
+        'border-border flex w-full flex-col border-t bg-zinc-100 dark:bg-zinc-900',
         asChild ? 'rounded-lg border' : 'border-t'
       )}
     >
       <div
         className={twMerge(
           'relative flex items-center justify-between pl-4',
-          show && children && 'border-b border-border'
+          show && children && 'border-border border-b'
         )}
       >
         <div className="flex items-center ">
@@ -89,12 +89,12 @@ export default function CardSidebar({
 
         {more && (
           <div
-            className="absolute right-4 top-8 z-50 w-72 rounded-lg border border-border bg-background shadow-lg"
+            className="border-border bg-background absolute right-4 top-8 z-50 w-72 rounded-lg border shadow-lg"
             ref={setMenu}
           >
             <div
               className={twMerge(
-                'flex cursor-pointer space-x-2 px-4 py-2 hover:bg-secondary',
+                'hover:bg-secondary flex cursor-pointer space-x-2 px-4 py-2',
                 title === 'Model' ? 'items-start' : 'items-center'
               )}
               onClick={() => {
@@ -105,29 +105,29 @@ export default function CardSidebar({
               <FolderOpenIcon
                 size={16}
                 className={twMerge(
-                  'flex-shrink-0 text-muted-foreground',
+                  'text-muted-foreground flex-shrink-0',
                   title === 'Model' && 'mt-1'
                 )}
               />
               <>
                 {title === 'Model' ? (
                   <div className="flex flex-col">
-                    <span className="font-medium text-black dark:text-muted-foreground">
+                    <span className="dark:text-muted-foreground font-medium text-black">
                       {openFileTitle()}
                     </span>
-                    <span className="mt-1 text-muted-foreground">
+                    <span className="text-muted-foreground mt-1">
                       Opens thread.json. Changes affect this thread only.
                     </span>
                   </div>
                 ) : (
-                  <span className="text-bold text-black dark:text-muted-foreground">
+                  <span className="text-bold dark:text-muted-foreground text-black">
                     {openFileTitle()}
                   </span>
                 )}
               </>
             </div>
             <div
-              className="flex cursor-pointer items-start space-x-2 px-4 py-2 hover:bg-secondary"
+              className="hover:bg-secondary flex cursor-pointer items-start space-x-2 px-4 py-2"
               onClick={() => {
                 onViewJson && onViewJson(title)
                 setMore(false)
@@ -135,11 +135,11 @@ export default function CardSidebar({
             >
               <PencilIcon
                 size={16}
-                className="mt-0.5 flex-shrink-0 text-muted-foreground"
+                className="text-muted-foreground mt-0.5 flex-shrink-0"
               />
               <>
                 <div className="flex flex-col">
-                  <span className="line-clamp-1 font-medium text-black dark:text-muted-foreground">
+                  <span className="dark:text-muted-foreground line-clamp-1 font-medium text-black">
                     Edit Global Defaults for{' '}
                     <span
                       className="font-bold"
@@ -148,7 +148,7 @@ export default function CardSidebar({
                       {activeThread?.assistants[0].model.id}
                     </span>
                   </span>
-                  <span className="mt-1 text-muted-foreground">
+                  <span className="text-muted-foreground mt-1">
                     {title === 'Model' ? (
                       <>
                         Opens <span className="lowercase">{title}.json.</span>
@@ -173,7 +173,7 @@ export default function CardSidebar({
       {show && (
         <div
           className={twMerge(
-            'flex flex-col gap-2 bg-white px-2 dark:bg-background',
+            'dark:bg-background flex flex-col gap-2 bg-white px-2',
             asChild && 'rounded-b-lg'
           )}
         >

@@ -2,15 +2,8 @@
 import { useCallback, useMemo } from 'react'
 
 import { Model } from '@janhq/core'
-import {
-  Badge,
-  Button,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
+import { Badge, Button } from '@janhq/uikit'
 
 import { atom, useAtomValue } from 'jotai'
 
@@ -96,8 +89,8 @@ const ExploreModelItemHeader: React.FC<Props> = ({ model, onClick, open }) => {
 
   if (isDownloaded) {
     downloadButton = (
-      <Tooltip>
-        <TooltipTrigger>
+      <Tooltip
+        trigger={
           <Button
             themes="secondaryBlue"
             className="min-w-[98px]"
@@ -106,16 +99,13 @@ const ExploreModelItemHeader: React.FC<Props> = ({ model, onClick, open }) => {
           >
             Use
           </Button>
-        </TooltipTrigger>
-        {serverEnabled && (
-          <TooltipPortal>
-            <TooltipContent side="top">
-              <span>Threads are disabled while the server is running</span>
-              <TooltipArrow />
-            </TooltipContent>
-          </TooltipPortal>
-        )}
-      </Tooltip>
+        }
+        content={
+          serverEnabled && (
+            <span>Threads are disabled while the server is running</span>
+          )
+        }
+      />
     )
   } else if (downloadState != null) {
     downloadButton = <ModalCancelDownload model={model} />
@@ -139,7 +129,7 @@ const ExploreModelItemHeader: React.FC<Props> = ({ model, onClick, open }) => {
 
   return (
     <div
-      className="cursor-pointer rounded-t-md bg-background"
+      className="bg-background cursor-pointer rounded-t-md"
       onClick={onClick}
     >
       {model.metadata.cover && (
@@ -156,7 +146,7 @@ const ExploreModelItemHeader: React.FC<Props> = ({ model, onClick, open }) => {
           <span className="font-bold">{model.name}</span>
         </div>
         <div className="inline-flex items-center space-x-2">
-          <span className="mr-4 font-semibold text-muted-foreground">
+          <span className="text-muted-foreground mr-4 font-semibold">
             {toGibibytes(model.metadata.size)}
           </span>
           {getLabel(model.metadata.size)}

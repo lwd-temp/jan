@@ -1,7 +1,7 @@
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
 import { fs, AppConfiguration, isSubdirectory } from '@janhq/core'
-import { Button, Input } from '@janhq/uikit'
+import { Button, Input } from '@janhq/joi'
 import { useSetAtom } from 'jotai'
 import { PencilIcon, FolderOpenIcon } from 'lucide-react'
 
@@ -113,34 +113,34 @@ const DataFolder = () => {
           '!md:flex-col'
         )}
       >
-        <div className="w-full space-y-1">
+        <div className={styles.listItemWrapper}>
           <h6 className={styles.listItemTitle}>Jan Data Folder</h6>
           <p className={styles.listItemDescription}>
             Where messages, model configurations, and other user data are
             placed.
           </p>
-        </div>
-        <div className="mt-4 flex items-center gap-x-3 lg:mt-0">
-          <div className="relative">
-            <Input
-              value={janDataFolderPath}
-              className="w-[240px] pr-8"
-              disabled
-            />
-            <FolderOpenIcon
-              size={16}
-              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
-              onClick={() => window.core?.api?.openAppDirectory()}
-            />
+          <div className="mt-4 flex items-center gap-x-3 lg:w-1/2">
+            <div className="relative w-full">
+              <Input
+                value={janDataFolderPath}
+                className="w-full pr-8 "
+                disabled
+              />
+              <FolderOpenIcon
+                size={16}
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer"
+                onClick={() => window.core?.api?.openAppDirectory()}
+              />
+            </div>
+            <Button
+              size="small"
+              theme="secondary"
+              className="h-9 w-9 p-0"
+              onClick={onChangeFolderClick}
+            >
+              <PencilIcon size={16} />
+            </Button>
           </div>
-          <Button
-            size="sm"
-            themes="outline"
-            className="h-9 w-9 p-0"
-            onClick={onChangeFolderClick}
-          >
-            <PencilIcon size={16} />
-          </Button>
         </div>
       </div>
       <ModalSameDirectory onChangeFolderClick={onChangeFolderClick} />

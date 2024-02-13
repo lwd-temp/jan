@@ -68,7 +68,7 @@ export default function CommandListDownloadedModel() {
                   >
                     <DatabaseIcon
                       size={16}
-                      className="mr-3 text-muted-foreground"
+                      className="text-muted-foreground mr-3"
                     />
                     <div className="flex w-full items-center justify-between">
                       <span>{model.id}</span>
@@ -87,7 +87,7 @@ export default function CommandListDownloadedModel() {
                 setShowSelectModelModal(false)
               }}
             >
-              <CpuIcon size={16} className="mr-3 text-muted-foreground" />
+              <CpuIcon size={16} className="text-muted-foreground mr-3" />
               <span>Explore The Hub</span>
             </CommandItem>
           </CommandGroup>

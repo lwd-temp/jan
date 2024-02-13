@@ -8,7 +8,6 @@ import { useAtom } from 'jotai'
 import {
   MessageCircleIcon,
   SettingsIcon,
-  MonitorIcon,
   LayoutGridIcon,
   SquareCodeIcon,
 } from 'lucide-react'
@@ -44,11 +43,7 @@ const secondaryMenus = [
     icon: <SquareCodeIcon size={20} />,
     state: MainViewState.LocalServer,
   },
-  {
-    name: 'System Monitor',
-    icon: <MonitorIcon size={20} />,
-    state: MainViewState.SystemMonitor,
-  },
+
   {
     name: 'Settings',
     icon: <SettingsIcon size={20} />,

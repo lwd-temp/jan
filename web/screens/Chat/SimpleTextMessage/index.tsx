@@ -7,13 +7,7 @@ import {
   ThreadMessage,
 } from '@janhq/core'
 
-import {
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
 import hljs from 'highlight.js'
 
 import { useAtomValue } from 'jotai'
@@ -31,6 +25,8 @@ import { usePath } from '@/hooks/usePath'
 
 import { toGibibytes } from '@/utils/converter'
 import { displayDate } from '@/utils/datetime'
+
+import { openFileTitle } from '@/utils/titleUtils'
 
 import EditChatInput from '../EditChatInput'
 import Icon from '../FileUploadPreview/Icon'
@@ -167,7 +163,7 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
       >
         {!isUser && !isSystem && <LogoMark width={28} />}
         {isUser && (
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-border">
+          <div className="border-border flex h-8 w-8 items-center justify-center rounded-full border">
             <svg
               width="12"
               height="16"
@@ -206,7 +202,7 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
         </div>
         {messages[messages.length - 1]?.id === props.id &&
           (props.status === MessageStatus.Pending || tokenSpeed > 0) && (
-            <p className="absolute right-8 text-xs font-medium text-foreground">
+            <p className="text-foreground absolute right-8 text-xs font-medium">
               Token Speed: {Number(tokenSpeed).toFixed(2)}/s
             </p>
           )}
@@ -223,49 +219,39 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
                 onClick={() => onViewFile(`${props.id}.png`)}
               />
               <div className="absolute left-0 top-0 z-20 hidden h-full w-full bg-black/20 group-hover/image:inline-block" />
-              <Tooltip>
-                <TooltipTrigger asChild>
+              <Tooltip
+                trigger={
                   <div
-                    className="absolute right-2 top-2 z-20 hidden h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-background group-hover/image:flex"
+                    className="bg-background absolute right-2 top-2 z-20 hidden h-8 w-8 cursor-pointer items-center justify-center rounded-md group-hover/image:flex"
                     onClick={onViewFileContainer}
                   >
                     <FolderOpenIcon size={20} />
                   </div>
-                </TooltipTrigger>
-                <TooltipPortal>
-                  <TooltipContent side="top" className="max-w-[154px] px-3">
-                    <span>Show in finder</span>
-                    <TooltipArrow />
-                  </TooltipContent>
-                </TooltipPortal>
-              </Tooltip>
+                }
+                content={openFileTitle()}
+              />
             </div>
           )}
 
           {props.content[0]?.type === ContentType.Pdf && (
-            <div className="group/file relative mb-2 inline-flex w-60 cursor-pointer gap-x-3 overflow-hidden rounded-lg bg-secondary p-4">
+            <div className="group/file bg-secondary relative mb-2 inline-flex w-60 cursor-pointer gap-x-3 overflow-hidden rounded-lg p-4">
               <div
                 className="absolute left-0 top-0 z-20 hidden h-full w-full bg-black/20 backdrop-blur-sm group-hover/file:inline-block"
                 onClick={() =>
                   onViewFile(`${props.id}.${props.content[0]?.type}`)
                 }
               />
-              <Tooltip>
-                <TooltipTrigger asChild>
+              <Tooltip
+                trigger={
                   <div
-                    className="absolute right-2 top-2 z-20 hidden h-8 w-8 cursor-pointer items-center justify-center rounded-md bg-background group-hover/file:flex"
+                    className="bg-background absolute right-2 top-2 z-20 hidden h-8 w-8 cursor-pointer items-center justify-center rounded-md group-hover/file:flex"
                     onClick={onViewFileContainer}
                   >
                     <FolderOpenIcon size={20} />
                   </div>
-                </TooltipTrigger>
-                <TooltipPortal>
-                  <TooltipContent side="top" className="max-w-[154px] px-3">
-                    <span>Show in finder</span>
-                    <TooltipArrow />
-                  </TooltipContent>
-                </TooltipPortal>
-              </Tooltip>
+                }
+                content={openFileTitle()}
+              />
 
               <Icon type={props.content[0].type} />
 
@@ -292,7 +278,7 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
                     'message flex flex-grow flex-col gap-y-2 text-[15px] font-normal leading-relaxed',
                     isUser
                       ? 'whitespace-pre-wrap break-words'
-                      : 'rounded-xl bg-secondary p-4'
+                      : 'bg-secondary rounded-xl p-4'
                   )}
                 >
                   {text}
@@ -305,7 +291,7 @@ const SimpleTextMessage: React.FC<ThreadMessage> = (props) => {
                 'message flex flex-grow flex-col gap-y-2 text-[15px] font-normal leading-relaxed',
                 isUser
                   ? 'whitespace-pre-wrap break-words'
-                  : 'rounded-xl bg-secondary p-4'
+                  : 'bg-secondary rounded-xl p-4'
               )}
               // eslint-disable-next-line @typescript-eslint/naming-convention
               dangerouslySetInnerHTML={{ __html: parsedText }}

@@ -32,7 +32,7 @@ const DeleteThreadModal: React.FC<Props> = ({ threadId }) => {
   return (
     <Modal>
       <ModalTrigger asChild onClick={(e) => e.stopPropagation()}>
-        <div className="flex cursor-pointer items-center space-x-2 px-4 py-2 hover:bg-secondary">
+        <div className="hover:bg-secondary flex cursor-pointer items-center space-x-2 px-4 py-2">
           <Trash2Icon size={16} className="text-red-600 dark:text-red-300" />
           <span className="text-bold text-red-600 dark:text-red-300">
             Delete thread

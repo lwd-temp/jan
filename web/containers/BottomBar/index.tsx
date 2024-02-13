@@ -1,11 +1,4 @@
-import {
-  Badge,
-  Button,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Badge, Button } from '@janhq/uikit'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 
 import { FaGithub, FaDiscord } from 'react-icons/fa'

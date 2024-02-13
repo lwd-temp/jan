@@ -11,12 +11,7 @@ import {
 } from '@janhq/uikit'
 
 import { useAtom } from 'jotai'
-import {
-  MessageCircleIcon,
-  SettingsIcon,
-  LayoutGridIcon,
-  MonitorIcon,
-} from 'lucide-react'
+import { MessageCircleIcon, SettingsIcon, LayoutGridIcon } from 'lucide-react'
 
 import { showCommandSearchModalAtom } from '@/containers/Providers/KeyListener'
 import ShortCut from '@/containers/Shortcut'
@@ -29,23 +24,19 @@ const menus = [
   {
     name: 'Chat',
     icon: (
-      <MessageCircleIcon size={16} className="mr-3 text-muted-foreground" />
+      <MessageCircleIcon size={16} className="text-muted-foreground mr-3" />
     ),
     state: MainViewState.Thread,
   },
   {
     name: 'Hub',
-    icon: <LayoutGridIcon size={16} className="mr-3 text-muted-foreground" />,
+    icon: <LayoutGridIcon size={16} className="text-muted-foreground mr-3" />,
     state: MainViewState.Hub,
   },
-  {
-    name: 'System Monitor',
-    icon: <MonitorIcon size={16} className="mr-3 text-muted-foreground" />,
-    state: MainViewState.SystemMonitor,
-  },
+
   {
     name: 'Settings',
-    icon: <SettingsIcon size={16} className="mr-3 text-muted-foreground" />,
+    icon: <SettingsIcon size={16} className="text-muted-foreground mr-3" />,
     state: MainViewState.Settings,
     shortcut: <ShortCut menu="," />,
   },

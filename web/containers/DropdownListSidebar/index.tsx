@@ -192,15 +192,15 @@ const DropdownListSidebar = ({
           </SelectTrigger>
           <SelectPortal>
             <SelectContent className="right-2  block w-full min-w-[450px] pr-0">
-              <div className="relative px-2 py-2 dark:bg-secondary/50">
-                <ul className="inline-flex w-full space-x-2 rounded-lg bg-zinc-100 px-1 dark:bg-secondary">
+              <div className="dark:bg-secondary/50 relative px-2 py-2">
+                <ul className="dark:bg-secondary inline-flex w-full space-x-2 rounded-lg bg-zinc-100 px-1">
                   {engineOptions.map((name, i) => {
                     return (
                       <li
                         className={twMerge(
                           'relative my-1 flex w-full cursor-pointer items-center justify-center space-x-2 px-2 py-2',
                           isTabActive === i &&
-                            'rounded-md bg-background dark:bg-white'
+                            'bg-background rounded-md dark:bg-white'
                         )}
                         key={i}
                         onClick={() => setIsTabActive(i)}
@@ -208,19 +208,19 @@ const DropdownListSidebar = ({
                         {i === 0 ? (
                           <MonitorIcon
                             size={20}
-                            className="z-50 text-muted-foreground"
+                            className="text-muted-foreground z-50"
                           />
                         ) : (
                           <GlobeIcon
                             size={20}
-                            className="z-50 text-muted-foreground"
+                            className="text-muted-foreground z-50"
                           />
                         )}
                         <span
                           className={twMerge(
-                            'relative z-50 font-medium text-muted-foreground',
+                            'text-muted-foreground relative z-50 font-medium',
                             isTabActive === i &&
-                              'font-bold text-foreground dark:text-black'
+                              'text-foreground font-bold dark:text-black'
                           )}
                         >
                           {name}
@@ -231,7 +231,7 @@ const DropdownListSidebar = ({
                 </ul>
               </div>
 
-              <div className="border-b border-border" />
+              <div className="border-border border-b" />
               {downloadedModels.length === 0 ? (
                 <div className="px-4 py-2">
                   <p>{`Oops, you don't have a model yet.`}</p>
@@ -279,7 +279,7 @@ const DropdownListSidebar = ({
                                 {x.name}
                               </span>
                               <div className="absolute right-0 top-2 space-x-2">
-                                <span className="font-bold text-muted-foreground">
+                                <span className="text-muted-foreground font-bold">
                                   {toGibibytes(x.metadata.size)}
                                 </span>
                                 {x.engine == InferenceEngine.nitro && (
@@ -291,7 +291,7 @@ const DropdownListSidebar = ({
                         </SelectItem>
                         <div
                           className={twMerge(
-                            'absolute -mt-6 inline-flex items-center space-x-2 px-4 pb-2 text-muted-foreground',
+                            'text-muted-foreground absolute -mt-6 inline-flex items-center space-x-2 px-4 pb-2',
                             x.engine === InferenceEngine.openai && 'left-8'
                           )}
                         >
@@ -314,7 +314,7 @@ const DropdownListSidebar = ({
                   </>
                 </SelectGroup>
               )}
-              <div className="border-b border-border" />
+              <div className="border-border border-b" />
               <div className="flex w-full space-x-2 px-4 py-2">
                 <Button
                   block

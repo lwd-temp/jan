@@ -11,7 +11,6 @@ import ExploreModelsScreen from '@/screens/ExploreModels'
 
 import LocalServerScreen from '@/screens/LocalServer'
 import SettingsScreen from '@/screens/Settings'
-import SystemMonitorScreen from '@/screens/SystemMonitor'
 
 export default function Page() {
   const { mainViewState } = useMainViewState()
@@ -26,16 +25,12 @@ export default function Page() {
       children = <SettingsScreen />
       break
 
-    case MainViewState.SystemMonitor:
-      children = <SystemMonitorScreen />
-      break
-
     // case MainViewState.LocalServer:
     //   children = <LocalServerScreen />
     //   break
 
     default:
-      children = <SettingsScreen />
+      children = <ChatScreen />
       break
   }
 

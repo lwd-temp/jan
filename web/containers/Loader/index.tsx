@@ -3,19 +3,19 @@ type Props = {
 }
 export default function Loader({ description }: Props) {
   return (
-    <div className="fixed inset-0 z-50 flex h-full items-center justify-center gap-y-4 rounded-lg bg-background/90 backdrop-blur-sm">
+    <div className="bg-background/90 fixed inset-0 z-50 flex h-full items-center justify-center gap-y-4 rounded-lg backdrop-blur-sm">
       <div className="space-y-16">
         <div className="loader">
           <div className="loader-inner">
-            <label className="h-2 w-2 rounded-full bg-primary" />
-            <label className="h-2 w-2 rounded-full bg-primary" />
-            <label className="h-2 w-2 rounded-full bg-primary" />
-            <label className="h-2 w-2 rounded-full bg-primary" />
-            <label className="h-2 w-2 rounded-full bg-primary" />
-            <label className="h-2 w-2 rounded-full bg-primary" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
+            <label className="bg-primary h-2 w-2 rounded-full" />
           </div>
         </div>
-        <p className="font-medium text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground font-medium">{description}</p>
       </div>
     </div>
   )

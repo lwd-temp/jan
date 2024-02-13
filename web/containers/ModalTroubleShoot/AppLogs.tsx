@@ -28,7 +28,7 @@ const AppLogs = () => {
       <div className="absolute -top-11 right-2">
         <Button
           themes="outline"
-          className="bg-white dark:bg-secondary/50"
+          className="dark:bg-secondary/50 bg-white"
           onClick={() => {
             clipboard.copy(logs.slice(-50) ?? '')
           }}
@@ -192,7 +192,7 @@ const AppLogs = () => {
                 </linearGradient>
               </defs>
             </svg>
-            <p className="mt-4 text-muted-foreground">Empty logs</p>
+            <p className="text-muted-foreground mt-4">Empty logs</p>
           </div>
         )}
       </div>

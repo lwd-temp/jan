@@ -4,14 +4,10 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import ScrollToBottom from 'react-scroll-to-bottom'
 
+import { Tooltip } from '@janhq/joi'
 import {
   Button,
   Switch,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
   Select,
   SelectContent,
   SelectItem,
@@ -111,14 +107,14 @@ const LocalServerScreen = () => {
   return (
     <div className="flex h-full w-full" data-testid="local-server-testid">
       {/* Left SideBar */}
-      <div className="flex h-full w-60 flex-shrink-0 flex-col overflow-y-auto border-r border-border">
+      <div className="border-border flex h-full w-60 flex-shrink-0 flex-col overflow-y-auto border-r">
         <div className="p-4">
           <h2 className="font-bold">Server Options</h2>
           <p className="mt-2 leading-relaxed">
             Start an OpenAI-compatible local HTTP server.
           </p>
         </div>
-        <div className="border-b border-border pb-8">
+        <div className="border-border border-b pb-8">
           <div className="space-y-3 px-4">
             <Button
               block
@@ -157,8 +153,8 @@ const LocalServerScreen = () => {
           </div>
         </div>
 
-        <Tooltip>
-          <TooltipTrigger asChild>
+        <Tooltip
+          trigger={
             <div className="space-y-4 p-4">
               <div>
                 <p className="mb-2 block text-sm font-semibold text-zinc-500 dark:text-gray-300">
@@ -189,7 +185,6 @@ const LocalServerScreen = () => {
                       })}
                     </SelectContent>
                   </Select>
-
                   <Input
                     className={twMerge(
                       'w-[70px] flex-shrink-0',
@@ -205,7 +200,7 @@ const LocalServerScreen = () => {
                   />
                 </div>
                 {errorRangePort && (
-                  <p className="mt-2 text-xs text-danger">{`The port range should be from 0 to 65536`}</p>
+                  <p className="text-danger mt-2 text-xs">{`The port range should be from 0 to 65536`}</p>
                 )}
               </div>
               <div>
@@ -214,25 +209,22 @@ const LocalServerScreen = () => {
                   className="mb-2 inline-flex items-start gap-x-2 font-bold text-zinc-500 dark:text-gray-300"
                 >
                   Cross-Origin-Resource-Sharing (CORS)
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+                  <Tooltip
+                    trigger={
                       <InfoIcon
                         size={16}
                         className="mt-0.5 flex-shrink-0 dark:text-gray-500"
                       />
-                    </TooltipTrigger>
-                    <TooltipPortal>
-                      <TooltipContent side="top" className="max-w-[240px]">
-                        <span>
-                          CORS (Cross-Origin Resource Sharing) manages resource
-                          access on this server from external domains. Enable
-                          for secure inter-website communication, regulating
-                          data sharing to bolster overall security.
-                        </span>
-                        <TooltipArrow />
-                      </TooltipContent>
-                    </TooltipPortal>
-                  </Tooltip>
+                    }
+                    content={
+                      <span>
+                        CORS (Cross-Origin Resource Sharing) manages resource
+                        access on this server from external domains. Enable for
+                        secure inter-website communication, regulating data
+                        sharing to bolster overall security.
+                      </span>
+                    }
+                  />
                 </label>
                 <div className="flex items-center justify-between">
                   <Switch
@@ -249,25 +241,22 @@ const LocalServerScreen = () => {
                   className="mb-2 inline-flex items-start gap-x-2 font-bold text-zinc-500 dark:text-gray-300"
                 >
                   Verbose Server Logs
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+                  <Tooltip
+                    trigger={
                       <InfoIcon
                         size={16}
                         className="mt-0.5 flex-shrink-0 dark:text-gray-500"
                       />
-                    </TooltipTrigger>
-                    <TooltipPortal>
-                      <TooltipContent side="top" className="max-w-[240px]">
-                        <span>
-                          Verbose Server Logs provide extensive details about
-                          server activities. Enable to capture thorough records,
-                          aiding in troubleshooting and monitoring server
-                          performance effectively.
-                        </span>
-                        <TooltipArrow />
-                      </TooltipContent>
-                    </TooltipPortal>
-                  </Tooltip>
+                    }
+                    content={
+                      <span>
+                        Verbose Server Logs provide extensive details about
+                        server activities. Enable to capture thorough records,
+                        aiding in troubleshooting and monitoring server
+                        performance effectively.
+                      </span>
+                    }
+                  />
                 </label>
                 <div className="flex items-center justify-between">
                   <Switch
@@ -279,29 +268,26 @@ const LocalServerScreen = () => {
                 </div>
               </div>
             </div>
-          </TooltipTrigger>
-          <TooltipPortal>
-            {serverEnabled && (
-              <TooltipContent side="bottom" className="max-w-[200px]">
-                <span>
-                  Settings cannot be modified while the server is running
-                </span>
-                <TooltipArrow />
-              </TooltipContent>
-            )}
-          </TooltipPortal>
-        </Tooltip>
+          }
+          content={
+            serverEnabled && (
+              <span>
+                Settings cannot be modified while the server is running
+              </span>
+            )
+          }
+        />
       </div>
 
       {/* Middle Bar */}
-      <ScrollToBottom className="relative flex h-full w-full flex-col overflow-auto bg-background">
+      <ScrollToBottom className="bg-background relative flex h-full w-full flex-col overflow-auto">
         <div className="sticky top-0 flex  items-center justify-between bg-zinc-100 px-4 py-2 dark:bg-zinc-600">
           <h2 className="font-bold">Server Logs</h2>
           <div className="space-x-2">
             <Button
               size="sm"
               themes="outline"
-              className="bg-white dark:bg-secondary"
+              className="dark:bg-secondary bg-white"
               onClick={() => openServerLog()}
             >
               <CodeIcon size={16} className="mr-2" />
@@ -310,7 +296,7 @@ const LocalServerScreen = () => {
             <Button
               size="sm"
               themes="outline"
-              className="bg-white dark:bg-secondary"
+              className="dark:bg-secondary bg-white"
               onClick={() => clearServerLog()}
             >
               <Paintbrush size={16} className="mr-2" />
@@ -366,7 +352,7 @@ const LocalServerScreen = () => {
       {/* Right bar */}
       <div
         className={twMerge(
-          'h-full flex-shrink-0 overflow-x-hidden border-l border-border bg-background transition-all duration-100 dark:bg-background/20',
+          'border-border bg-background dark:bg-background/20 h-full flex-shrink-0 overflow-x-hidden border-l transition-all duration-100',
           showRightSideBar
             ? 'w-80 translate-x-0 opacity-100'
             : 'w-0 translate-x-full opacity-0'
@@ -402,7 +388,7 @@ const LocalServerScreen = () => {
               <span>
                 Model failed to start. Access{' '}
                 <span
-                  className="cursor-pointer text-primary dark:text-blue-400"
+                  className="text-primary cursor-pointer dark:text-blue-400"
                   onClick={() => setModalTroubleShooting(true)}
                 >
                   troubleshooting assistance

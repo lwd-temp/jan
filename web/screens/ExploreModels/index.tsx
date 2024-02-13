@@ -51,7 +51,7 @@ const ExploreModelsScreen = () => {
 
   return (
     <div
-      className="flex h-full w-full overflow-y-auto bg-background"
+      className="bg-background flex h-full w-full overflow-y-auto"
       data-testid="hub-container-test-id"
     >
       <div className="h-full w-full p-4">
@@ -67,11 +67,11 @@ const ExploreModelsScreen = () => {
                 <div className="relative">
                   <SearchIcon
                     size={20}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 text-muted-foreground"
+                    className="text-muted-foreground absolute left-2 top-1/2 -translate-y-1/2"
                   />
                   <Input
                     placeholder="Search models"
-                    className="bg-white pl-9 dark:bg-background"
+                    className="dark:bg-background bg-white pl-9"
                     onChange={(e) => {
                       setsearchValue(e.target.value)
                     }}

@@ -3,15 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react'
 
 import { InferenceEvent, MessageStatus, events } from '@janhq/core'
 
-import {
-  Textarea,
-  Button,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
+import { Textarea, Button } from '@janhq/uikit'
 import { useAtom, useAtomValue } from 'jotai'
 import {
   FileTextIcon,
@@ -149,11 +142,11 @@ const ChatInput: React.FC = () => {
           onChange={onPromptChange}
         />
         {experimentalFeature && (
-          <Tooltip>
-            <TooltipTrigger asChild>
+          <Tooltip
+            trigger={
               <PaperclipIcon
                 size={20}
-                className="absolute bottom-2 right-4 cursor-pointer text-muted-foreground"
+                className="text-muted-foreground absolute bottom-2 right-4 cursor-pointer"
                 onClick={(e) => {
                   if (
                     fileUpload.length > 0 ||
@@ -166,45 +159,38 @@ const ChatInput: React.FC = () => {
                   }
                 }}
               />
-            </TooltipTrigger>
-            <TooltipPortal>
-              {fileUpload.length > 0 ||
-                (activeThread?.assistants[0].tools &&
-                  !activeThread?.assistants[0].tools[0]?.enabled && (
-                    <TooltipContent side="top" className="max-w-[154px] px-3">
-                      {fileUpload.length !== 0 && (
-                        <span>
-                          Currently, we only support 1 attachment at the same
-                          time
-                        </span>
-                      )}
-                      {activeThread?.assistants[0].tools &&
-                        activeThread?.assistants[0].tools[0]?.enabled ===
-                          false && (
-                          <span>
-                            Turn on Retrieval in Assistant Settings to use this
-                            feature
-                          </span>
-                        )}
-                      <TooltipArrow />
-                    </TooltipContent>
-                  ))}
-            </TooltipPortal>
-          </Tooltip>
+            }
+            content={
+              <>
+                {fileUpload.length !== 0 && (
+                  <span>
+                    Currently, we only support 1 attachment at the same time
+                  </span>
+                )}
+                {activeThread?.assistants[0].tools &&
+                  activeThread?.assistants[0].tools[0]?.enabled === false && (
+                    <span>
+                      Turn on Retrieval in Assistant Settings to use this
+                      feature
+                    </span>
+                  )}
+              </>
+            }
+          />
         )}
 
         {showAttacmentMenus && (
           <div
             ref={refAttachmentMenus}
-            className="absolute bottom-10 right-0 w-36 cursor-pointer rounded-lg border border-border bg-background py-1 shadow"
+            className="border-border bg-background absolute bottom-10 right-0 w-36 cursor-pointer rounded-lg border py-1 shadow"
           >
             <ul>
-              <li className="flex w-full cursor-not-allowed  items-center space-x-2 px-4 py-2 text-muted-foreground opacity-50 hover:bg-secondary">
+              <li className="text-muted-foreground hover:bg-secondary flex  w-full cursor-not-allowed items-center space-x-2 px-4 py-2 opacity-50">
                 <ImageIcon size={16} />
                 <span className="font-medium">Image</span>
               </li>
               <li
-                className="flex w-full cursor-pointer items-center space-x-2 px-4 py-2 text-muted-foreground hover:bg-secondary"
+                className="text-muted-foreground hover:bg-secondary flex w-full cursor-pointer items-center space-x-2 px-4 py-2"
                 onClick={() => {
                   fileInputRef.current?.click()
                   setShowAttacmentMenus(false)

@@ -4,8 +4,6 @@ import { PropsWithChildren, useEffect, useState } from 'react'
 
 import { Toaster } from 'react-hot-toast'
 
-import { TooltipProvider } from '@janhq/uikit'
-
 import GPUDriverPrompt from '@/containers/GPUDriverPromptModal'
 import EventListenerWrapper from '@/containers/Providers/EventListener'
 import JotaiWrapper from '@/containers/Providers/Jotai'

@@ -25,7 +25,7 @@ const ExploreModelItem = forwardRef<HTMLDivElement, Props>(({ model }, ref) => {
   return (
     <div
       ref={ref}
-      className="mb-6 flex flex-col overflow-hidden rounded-xl border border-border bg-background/60"
+      className="border-border bg-background/60 mb-6 flex flex-col overflow-hidden rounded-xl border"
     >
       <ExploreModelItemHeader
         model={model}
@@ -34,7 +34,7 @@ const ExploreModelItem = forwardRef<HTMLDivElement, Props>(({ model }, ref) => {
       />
       {open === model.id && (
         <div className="flex">
-          <div className="flex w-full flex-col border-t border-border p-4 ">
+          <div className="border-border flex w-full flex-col border-t p-4 ">
             <div className="mb-6 flex flex-col gap-1">
               <span className="font-semibold">About</span>
               <p className="text-muted-foreground">
@@ -43,7 +43,7 @@ const ExploreModelItem = forwardRef<HTMLDivElement, Props>(({ model }, ref) => {
             </div>
             <div className="flex space-x-10">
               <div>
-                <span className="font-semibold text-muted-foreground">
+                <span className="text-muted-foreground font-semibold">
                   Author
                 </span>
                 <p className="mt-2 line-clamp-1 font-medium">
@@ -51,13 +51,13 @@ const ExploreModelItem = forwardRef<HTMLDivElement, Props>(({ model }, ref) => {
                 </p>
               </div>
               <div>
-                <span className="mb-1 font-semibold text-muted-foreground">
+                <span className="text-muted-foreground mb-1 font-semibold">
                   Model ID
                 </span>
                 <p className="mt-2 line-clamp-1 font-medium">{model.id}</p>
               </div>
               <div>
-                <span className="mb-1 font-semibold text-muted-foreground">
+                <span className="text-muted-foreground mb-1 font-semibold">
                   Tags
                 </span>
                 <div className="mt-2 flex space-x-2">
@@ -75,9 +75,9 @@ const ExploreModelItem = forwardRef<HTMLDivElement, Props>(({ model }, ref) => {
               </div>
             </div>
           </div>
-          <div className="w-48 flex-shrink-0 border-l border-t border-border p-4">
+          <div className="border-border w-48 flex-shrink-0 border-l border-t p-4">
             <div>
-              <span className="font-semibold text-muted-foreground">
+              <span className="text-muted-foreground font-semibold">
                 Format
               </span>
               <p className="mt-2 font-medium uppercase">{model.format}</p>

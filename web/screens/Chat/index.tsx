@@ -13,7 +13,7 @@ import GenerateResponse from '@/containers/Loader/GenerateResponse'
 import ModelReload from '@/containers/Loader/ModelReload'
 import ModelStart from '@/containers/Loader/ModelStart'
 
-import { currentPromptAtom, fileUploadAtom } from '@/containers/Providers/Jotai'
+import { fileUploadAtom } from '@/containers/Providers/Jotai'
 import { showLeftSideBarAtom } from '@/containers/Providers/KeyListener'
 
 import { snackbar } from '@/containers/Toast'
@@ -54,7 +54,6 @@ const renderError = (code: string) => {
 }
 
 const ChatScreen: React.FC = () => {
-  const setCurrentPrompt = useSetAtom(currentPromptAtom)
   const activeThread = useAtomValue(activeThreadAtom)
   const showLeftSideBar = useAtomValue(showLeftSideBarAtom)
   const engineParamsUpdate = useAtomValue(engineParamsUpdateAtom)
@@ -142,17 +141,17 @@ const ChatScreen: React.FC = () => {
     <div className="flex h-full w-full">
       {/* Left side bar */}
       {showLeftSideBar ? (
-        <div className="flex h-full w-60 flex-shrink-0 flex-col overflow-y-auto border-r border-border">
+        <div className="border-border flex h-full w-60 flex-shrink-0 flex-col overflow-y-auto border-r">
           <ThreadList />
         </div>
       ) : null}
 
       <div
-        className="relative flex h-full w-full flex-col overflow-auto bg-background outline-none"
+        className="bg-background relative flex h-full w-full flex-col overflow-auto outline-none"
         {...getRootProps()}
       >
         {dragOver && (
-          <div className="absolute z-50 mx-auto h-full w-full bg-background/50 p-8 backdrop-blur-lg">
+          <div className="bg-background/50 absolute z-50 mx-auto h-full w-full p-8 backdrop-blur-lg">
             <div
               className={twMerge(
                 'flex h-full w-full items-center justify-center rounded-lg border border-dashed border-blue-500',

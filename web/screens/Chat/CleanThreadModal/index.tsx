@@ -32,9 +32,9 @@ const CleanThreadModal: React.FC<Props> = ({ threadId }) => {
   return (
     <Modal>
       <ModalTrigger asChild onClick={(e) => e.stopPropagation()}>
-        <div className="flex cursor-pointer items-center space-x-2 px-4 py-2 hover:bg-secondary">
+        <div className="hover:bg-secondary flex cursor-pointer items-center space-x-2 px-4 py-2">
           <Paintbrush size={16} className="text-muted-foreground" />
-          <span className="text-bold text-black dark:text-muted-foreground">
+          <span className="text-bold dark:text-muted-foreground text-black">
             Clean thread
           </span>
         </div>

@@ -1,16 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext } from 'react'
 
-import {
-  Input,
-  Textarea,
-  Switch,
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipPortal,
-  TooltipTrigger,
-} from '@janhq/uikit'
+import { Tooltip } from '@janhq/joi'
+import { Input, Textarea, Switch } from '@janhq/uikit'
 
 import { atom, useAtomValue } from 'jotai'
 
@@ -65,7 +57,7 @@ const Sidebar: React.FC = () => {
   return (
     <div
       className={twMerge(
-        'h-full flex-shrink-0 overflow-x-hidden border-l border-border bg-background pb-6 transition-all duration-100 dark:bg-background/20',
+        'border-border bg-background dark:bg-background/20 h-full flex-shrink-0 overflow-x-hidden border-l pb-6 transition-all duration-100',
         showing
           ? 'w-80 translate-x-0 opacity-100'
           : 'w-0 translate-x-full opacity-0'
@@ -104,7 +96,7 @@ const Sidebar: React.FC = () => {
             >
               Threads ID
             </label>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-muted-foreground text-xs">
               {activeThread?.id || '-'}
             </span>
           </div>
@@ -160,29 +152,22 @@ const Sidebar: React.FC = () => {
                             className="inline-flex items-center font-bold text-zinc-500 dark:text-gray-300"
                           >
                             Retrieval
-                            <Tooltip>
-                              <TooltipTrigger asChild>
+                            <Tooltip
+                              trigger={
                                 <InfoIcon
                                   size={16}
                                   className="ml-2 flex-shrink-0 text-black dark:text-gray-500"
                                 />
-                              </TooltipTrigger>
-                              <TooltipPortal>
-                                <TooltipContent
-                                  side="top"
-                                  className="max-w-[240px]"
-                                >
-                                  <span>
-                                    Retrieval helps the assistant use
-                                    information from files you send to it. Once
-                                    you share a file, the assistant
-                                    automatically fetches the relevant content
-                                    based on your request.
-                                  </span>
-                                  <TooltipArrow />
-                                </TooltipContent>
-                              </TooltipPortal>
-                            </Tooltip>
+                              }
+                              content={
+                                <span>
+                                  Retrieval helps the assistant use information
+                                  from files you send to it. Once you share a
+                                  file, the assistant automatically fetches the
+                                  relevant content based on your request.
+                                </span>
+                              }
+                            />
                           </label>
 
                           <div className="flex items-center justify-between">
@@ -229,32 +214,26 @@ const Sidebar: React.FC = () => {
                               >
                                 Embedding Model
                               </label>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
+                              <Tooltip
+                                trigger={
                                   <InfoIcon
                                     size={16}
                                     className="ml-2 flex-shrink-0 dark:text-gray-500"
                                   />
-                                </TooltipTrigger>
-                                <TooltipPortal>
-                                  <TooltipContent
-                                    side="top"
-                                    className="max-w-[240px]"
-                                  >
-                                    <span>
-                                      Embedding model is crucial for
-                                      understanding and processing the input
-                                      text effectively by converting text to
-                                      numerical representations. Align the model
-                                      choice with your task, evaluate its
-                                      performance, and consider factors like
-                                      resource availability. Experiment to find
-                                      the best fit for your specific use case.
-                                    </span>
-                                    <TooltipArrow />
-                                  </TooltipContent>
-                                </TooltipPortal>
-                              </Tooltip>
+                                }
+                                content={
+                                  <span>
+                                    Embedding model is crucial for understanding
+                                    and processing the input text effectively by
+                                    converting text to numerical
+                                    representations. Align the model choice with
+                                    your task, evaluate its performance, and
+                                    consider factors like resource availability.
+                                    Experiment to find the best fit for your
+                                    specific use case.
+                                  </span>
+                                }
+                              />
                             </div>
 
                             <div className="flex items-center justify-between">
@@ -269,30 +248,24 @@ const Sidebar: React.FC = () => {
                               >
                                 Vector Database
                               </label>
-                              <Tooltip>
-                                <TooltipTrigger asChild>
+                              <Tooltip
+                                trigger={
                                   <InfoIcon
                                     size={16}
                                     className="ml-2 flex-shrink-0 dark:text-gray-500"
                                   />
-                                </TooltipTrigger>
-                                <TooltipPortal>
-                                  <TooltipContent
-                                    side="top"
-                                    className="max-w-[240px]"
-                                  >
-                                    <span>
-                                      Vector Database is crucial for efficient
-                                      storage and retrieval of embeddings.
-                                      Consider your specific task, available
-                                      resources, and language requirements.
-                                      Experiment to find the best fit for your
-                                      specific use case.
-                                    </span>
-                                    <TooltipArrow />
-                                  </TooltipContent>
-                                </TooltipPortal>
-                              </Tooltip>
+                                }
+                                content={
+                                  <span>
+                                    Vector Database is crucial for efficient
+                                    storage and retrieval of embeddings.
+                                    Consider your specific task, available
+                                    resources, and language requirements.
+                                    Experiment to find the best fit for your
+                                    specific use case.
+                                  </span>
+                                }
+                              />
                             </div>
 
                             <div className="flex items-center justify-between">

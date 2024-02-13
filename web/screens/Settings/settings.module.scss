@@ -29,10 +29,11 @@
   }
 
   .listItemWrapper {
-    @apply w-full space-y-1 pr-6 md:pr-10;
+    @apply w-full pr-6 md:pr-10;
   }
 
   .listItemDescription {
+    @apply mt-1;
     color: hsl(var(--setting-list-item-description, var(--default-text-muted)));
   }
 }

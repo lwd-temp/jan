@@ -20,12 +20,12 @@ export default function Models() {
   })
 
   return (
-    <div className="rounded-xl border border-border shadow-sm">
+    <div className="border-border rounded-xl border shadow-sm">
       <div className="px-6 py-5">
         <div className="relative w-1/3">
           <SearchIcon
             size={20}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-muted-foreground"
+            className="text-muted-foreground absolute left-2 top-1/2 -translate-y-1/2"
           />
           <Input
             placeholder="Search"
@@ -38,7 +38,7 @@ export default function Models() {
       </div>
       <div className="relative">
         <table className="w-full px-8">
-          <thead className="w-full border-b border-border bg-secondary">
+          <thead className="border-border bg-secondary w-full border-b">
             <tr>
               {Column.map((col, i) => {
                 return (
