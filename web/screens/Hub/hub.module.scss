@@ -1,9 +1,23 @@
 .hub {
-  position: relative;
+  @apply relative flex h-full w-full;
 
   .hubHeader {
     background-color: hsl(var(--hub-header-bg));
     height: 200px;
     border-bottom: 1px solid hsl(var(--hub-header-border));
+  }
+
+  .hubFilter {
+    @apply absolute h-full w-full flex-shrink-0 p-4 md:relative md:w-80;
+    background-color: hsl(var(--hub-filter-bg));
+    border-left: 1px solid hsl(var(--hub-filter-border));
+    display: none;
+    &.isShow {
+      display: block;
+    }
+  }
+
+  .hubContent {
+    @apply w-full;
   }
 }
