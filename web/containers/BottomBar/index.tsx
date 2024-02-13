@@ -70,7 +70,7 @@ const BottomBar = () => {
 
   return (
     <div className={styles.bottomBar}>
-      <div className="flex flex-shrink-0 items-center justify-end gap-x-2">
+      <div className="hidden flex-shrink-0 items-center justify-end gap-x-2 md:flex">
         <div className="flex items-center space-x-2">
           {progress && progress > 0 ? (
             <ProgressBar total={100} used={progress} />
