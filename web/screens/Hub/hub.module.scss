@@ -1,0 +1,9 @@
+.hub {
+  position: relative;
+
+  .hubHeader {
+    background-color: hsl(var(--hub-header-bg));
+    height: 200px;
+    border-bottom: 1px solid hsl(var(--hub-header-border));
+  }
+}

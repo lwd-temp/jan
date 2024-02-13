@@ -27,4 +27,12 @@
     border: none;
     cursor: not-allowed;
   }
+
+  &.with-prefix {
+    @apply pl-10;
+  }
+
+  &-prefix {
+    @apply absolute top-1/2 -translate-y-1/2 left-4;
+  }
 }

@@ -1,20 +1,25 @@
-import React, { forwardRef } from "react";
+import React, { ReactNode, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 import "./styles.scss";
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  prefixIcon?: ReactNode;
+}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, prefixIcon, type, ...props }, ref) => {
     return (
-      <input
-        type={type}
-        className={twMerge("input", className)}
-        ref={ref}
-        {...props}
-      />
+      <div className="relative w-full">
+        {prefixIcon && <div className="input-prefix">{prefixIcon}</div>}
+        <input
+          type={type}
+          className={twMerge("input", prefixIcon && "with-prefix", className)}
+          ref={ref}
+          {...props}
+        />
+      </div>
     );
   }
 );

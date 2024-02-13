@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { ExtensionTypeEnum, MonitoringExtension } from '@janhq/core'
 
+import { useDebouncedState } from '@janhq/joi'
 import { useSetAtom } from 'jotai'
 
 import { extensionManager } from '@/extension/ExtensionManager'
@@ -14,10 +15,10 @@ import {
 } from '@/helpers/atoms/SystemBar.atom'
 
 export default function useGetSystemResources() {
-  const [ram, setRam] = useState<number>(0)
-  const [cpu, setCPU] = useState<number>(0)
+  const [ram, setRam] = useDebouncedState<number>(0, 400)
+  const [cpu, setCPU] = useDebouncedState<number>(0, 400)
 
-  const [gpus, setGPUs] = useState<Record<string, never>[]>([])
+  const [gpus, setGPUs] = useDebouncedState<Record<string, never>[]>([], 400)
   const setTotalRam = useSetAtom(totalRamAtom)
   const setUsedRam = useSetAtom(usedRamAtom)
   const setAvailableRam = useSetAtom(availableRamAtom)
