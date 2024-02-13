@@ -35,7 +35,7 @@ const ModalChangeDirectory: React.FC<Props> = ({
         </ModalHeader>
         <p className="text-muted-foreground">
           Are you sure you want to relocate Jan data folder to{' '}
-          <span className="font-medium text-foreground">{destinationPath}</span>
+          <span className="text-foreground font-medium">{destinationPath}</span>
           ? A restart will be required afterward.
         </p>
         <ModalFooter>

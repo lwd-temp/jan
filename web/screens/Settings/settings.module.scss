@@ -16,4 +16,17 @@
     @apply absolute inset-0 -left-3 h-full w-[calc(100%+24px)] rounded-md;
     background-color: hsl(var(--setting-left-panel-active-bg));
   }
+
+  .listItem {
+    @apply flex w-full flex-col items-start justify-between border-b py-4 sm:flex-row;
+  }
+
+  .listItemTitle {
+    @apply font-bold capitalize;
+    color: hsl(var(--setting-list-item-title, var(--default-text-heading)));
+  }
+
+  .listItemDescription {
+    color: hsl(var(--setting-list-item-description, var(--default-text-muted)));
+  }
 }

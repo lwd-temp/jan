@@ -71,7 +71,6 @@ const SettingsScreen = () => {
           minSize={16}
           maxSize={40}
           defaultSize={22}
-          onResize={(size) => console.log(size)}
           style={isMobile ? { flexGrow: 8 } : {}}
         >
           <ScrollArea

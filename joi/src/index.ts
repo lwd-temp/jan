@@ -1,6 +1,6 @@
-// export * from './button'
 // export * from './badge'
 // export * from './progress'
+export * from "./button";
 export * from "./tooltip";
 export * from "./resizeable";
 export * from "./scroll-area";

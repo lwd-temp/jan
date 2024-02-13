@@ -1,9 +1,6 @@
 import React, { ComponentProps } from "react";
 
 import * as ResizablePrimitive from "react-resizable-panels";
-import { DragHandleDots2Icon } from "@radix-ui/react-icons";
-
-import { twMerge } from "tailwind-merge";
 
 const ResizablePanelGroup = ({
   className,

@@ -2,9 +2,13 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 
-import { Button } from '@janhq/uikit'
+import { Button } from '@janhq/joi'
+
+import { twMerge } from 'tailwind-merge'
 
 import { formatExtensionsName } from '@/utils/converter'
+
+import styles from '../settings.module.scss'
 
 import { extensionManager } from '@/extension'
 import Extension from '@/extension/Extension'
@@ -68,51 +72,47 @@ const ExtensionCatalog = () => {
   }
 
   return (
-    <div className="block w-full">
+    <div className="h-full w-full">
       {activeExtensions.map((item, i) => {
         return (
           <div
             key={i}
-            className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none"
+            className={twMerge('first:pt-0 last:border-none', styles.listItem)}
           >
-            <div className="w-4/5 flex-shrink-0 space-y-1.5">
-              <div className="flex gap-x-2">
-                <h6 className="text-sm font-semibold capitalize">
+            <div className="w-full space-y-1">
+              <div className="flex items-center gap-x-2">
+                <h6 className={styles.listItemTitle}>
                   {formatExtensionsName(item.name ?? item.description ?? '')}
                 </h6>
-                <p className="whitespace-pre-wrap font-semibold leading-relaxed ">
+                <p className="font-semibold leading-relaxed ">
                   v{item.version}
                 </p>
               </div>
-              <p className="whitespace-pre-wrap leading-relaxed ">
-                {item.description}
-              </p>
+              <p className={styles.listItemDescription}>{item.description}</p>
             </div>
           </div>
         )
       })}
       {/* Manual Installation */}
-      <div className="border-border flex w-full items-start justify-between border-b py-4 first:pt-0 last:border-none">
-        <div className="w-4/5 flex-shrink-0 space-y-1.5">
+      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+        <div className="w-full space-y-1">
           <div className="flex gap-x-2">
-            <h6 className="text-sm font-semibold capitalize">
-              Manual Installation
-            </h6>
+            <h6 className={styles.listItemTitle}>Manual Installation</h6>
           </div>
-          <p className="whitespace-pre-wrap leading-relaxed ">
+          <p className={styles.listItemDescription}>
             Select a extension file to install (.tgz)
           </p>
         </div>
-        <div>
+        <div className="mt-4 sm:mt-0">
           <input
             type="file"
-            style={{ display: 'none' }}
+            className="hidden"
             ref={fileInputRef}
             onChange={handleFileChange}
           />
           <Button
-            themes="secondaryBlue"
-            size="sm"
+            size="small"
+            variant="soft"
             onClick={() => fileInputRef.current?.click()}
           >
             Select

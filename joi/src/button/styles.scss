@@ -1,0 +1,104 @@
+@import "../../styles/bases.scss";
+
+.btn {
+  @apply inline-flex items-center justify-center px-4 font-semibold transition-all;
+
+  &:focus,
+  &:focus-within {
+    @apply outline-2 outline-offset-4;
+  }
+  &:hover {
+    filter: brightness(95%);
+  }
+
+  // Disabled
+  &:disabled {
+    background-color: hsl(var(--default-bg-secondary), 30%);
+    color: hsl(var(--default-bg-secondary));
+    pointer-events: none;
+    @apply opacity-50;
+  }
+
+  // Primary
+  &--primary {
+    @apply text-white;
+    background-color: hsl(var(--default-bg-primary));
+
+    // Variant soft primary
+    &.btn--soft {
+      background-color: hsl(var(--default-bg-primary), 10%);
+      color: hsl(var(--default-bg-primary));
+      &:hover {
+        background-color: hsl(var(--default-bg-primary), 20%);
+      }
+    }
+
+    // Variant outline primary
+    &.btn--outline {
+      background-color: transparent;
+      border: 1px solid hsl(var(--default-bg-primary));
+      color: hsl(var(--default-bg-primary));
+      &:hover {
+        background-color: hsl(var(--default-bg-primary), 5%);
+      }
+    }
+  }
+
+  // Secondary
+  &--secondary {
+    background-color: hsl(var(--default-bg-secondary), 10%);
+    &:hover {
+      filter: brightness(65%);
+    }
+
+    // Variant outline secondary
+    &.btn--outline {
+      background-color: transparent;
+      border: 1px solid hsl(var(--default-bg-secondary));
+      &:hover {
+        background-color: hsl(var(--default-bg-secondary), 5%);
+      }
+    }
+  }
+
+  // Destructive
+  &--destructive {
+    @apply text-white;
+    background-color: hsl(var(--default-bg-destructive));
+
+    // Variant soft destructive
+    &.btn--soft {
+      background-color: hsl(var(--default-bg-destructive), 10%);
+      color: hsl(var(--default-bg-destructive));
+      &:hover {
+        background-color: hsl(var(--default-bg-destructive), 20%);
+      }
+    }
+
+    // Variant outline destructive
+    &.btn--outline {
+      background-color: transparent;
+      border: 1px solid hsl(var(--default-bg-destructive));
+      color: hsl(var(--default-bg-destructive));
+      &:hover {
+        background-color: hsl(var(--default-bg-destructive), 5%);
+      }
+    }
+  }
+
+  // Size
+  &--small {
+    @apply h-8 px-3;
+    border-radius: var(--default-radius-small);
+  }
+
+  &--medium {
+    @apply h-9;
+    border-radius: var(--default-radius-medium);
+  }
+
+  &--large {
+    @apply h-11;
+    border-radius: var(--default-radius-large);
+  }
+}
