@@ -1,9 +1,9 @@
-import { Badge, Button } from '@janhq/uikit'
+import { Tooltip, Badge } from '@janhq/joi'
+import { Button } from '@janhq/uikit'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 
 import { FaGithub, FaDiscord } from 'react-icons/fa'
 
-import CommandListDownloadedModel from '@/containers/CommandListDownloadedModel'
 import DownloadingState from '@/containers/DownloadingState'
 import ProgressBar from '@/containers/ProgressBar'
 
@@ -29,12 +29,12 @@ import { downloadedModelsAtom } from '@/helpers/atoms/Model.atom'
 const menuLinks = [
   {
     name: 'Discord',
-    icon: <FaDiscord size={20} className="flex-shrink-0" />,
+    icon: <FaDiscord size={16} className="flex-shrink-0" />,
     link: 'https://discord.gg/FTk2MvZwJH',
   },
   {
     name: 'Github',
-    icon: <FaGithub size={16} className="flex-shrink-0" />,
+    icon: <FaGithub size={15} className="flex-shrink-0" />,
     link: 'https://github.com/janhq/jan',
   },
 ]
@@ -70,7 +70,7 @@ const BottomBar = () => {
 
   return (
     <div className={styles.bottomBar}>
-      {/* <div className="flex flex-shrink-0 items-center gap-x-2">
+      <div className="flex flex-shrink-0 items-center justify-end gap-x-2">
         <div className="flex items-center space-x-2">
           {progress && progress > 0 ? (
             <ProgressBar total={100} used={progress} />
@@ -79,8 +79,8 @@ const BottomBar = () => {
 
         {!serverEnabled && (
           <Badge
-            themes="secondary"
-            className="cursor-pointer rounded-md border-none font-medium"
+            theme="secondary"
+            className="cursor-pointer"
             onClick={() => setShowSelectModelModal((show) => !show)}
           >
             My Models
@@ -111,6 +111,7 @@ const BottomBar = () => {
               value={activeModel?.id}
             />
           )}
+
         {downloadedModels.length === 0 &&
           !stateModel.loading &&
           Object.values(downloadStates).length === 0 && (
@@ -122,30 +123,26 @@ const BottomBar = () => {
               Download your first model
             </Button>
           )}
-
         <DownloadingState />
       </div>
-      <div className="flex items-center gap-x-3">
+
+      <div className="flex items-center gap-x-4">
         <div className="flex items-center gap-x-2">
           <SystemItem name="CPU:" value={`${cpu}%`} />
           <SystemItem name="Mem:" value={`${ram}%`} />
         </div>
         {gpus.length > 0 && (
-          <Tooltip>
-            <TooltipTrigger>
+          <Tooltip
+            trigger={
               <div className="flex cursor-pointer items-center">
                 <SystemItem
                   name={`${gpus.length} GPU `}
                   value={`${calculateUtilization()}% `}
                 />
               </div>
-            </TooltipTrigger>
-            {gpus.length > 1 && (
-              <TooltipContent
-                side="top"
-                sideOffset={10}
-                className="min-w-[240px]"
-              >
+            }
+            content={
+              gpus.length > 1 && (
                 <span>
                   {gpus.map((gpu, index) => (
                     <div
@@ -160,41 +157,32 @@ const BottomBar = () => {
                     </div>
                   ))}
                 </span>
-                <TooltipArrow />
-              </TooltipContent>
-            )}
-          </Tooltip>
+              )
+            }
+          />
         )}
-        
-        <span className="text-xs text-muted-foreground">
-          Jan v{VERSION ?? ''}
-        </span>
-        <div className="mt-1 flex items-center gap-x-2">
-          {menuLinks
-            .filter((link) => !!link)
-            .map((link, i) => (
-              <div className="relative" key={i}>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <a
-                      href={link.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative flex w-full flex-shrink-0 cursor-pointer items-center justify-center"
-                    >
-                      {link.icon}
-                    </a>
-                  </TooltipTrigger>
-                  <TooltipContent side="top" sideOffset={10}>
-                    <span>{link.name}</span>
-                    <TooltipArrow />
-                  </TooltipContent>
-                </Tooltip>
-              </div>
-            ))}
+        <span className="text-xs">Jan v{VERSION ?? ''}</span>
+        <div className="mt-1 flex items-center gap-x-3">
+          {menuLinks.map((link, i) => (
+            <div className="relative" key={i}>
+              <Tooltip
+                sideOffset={8}
+                trigger={
+                  <a
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex w-full flex-shrink-0 cursor-pointer items-center justify-center"
+                  >
+                    {link.icon}
+                  </a>
+                }
+                content={link.name}
+              />
+            </div>
+          ))}
         </div>
-      </div> */}
-      <CommandListDownloadedModel />
+      </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-// export * from './badge'
+export * from "./badge";
 // export * from './progress'
 export * from "./input";
 export * from "./button";

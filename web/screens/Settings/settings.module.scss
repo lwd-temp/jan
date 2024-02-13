@@ -32,7 +32,7 @@
   }
 
   .listItemDescription {
-    @apply mt-1;
+    @apply mt-1 leading-relaxed;
     color: hsl(
       var(--setting-list-item-description, var(--app-wrapper-fg), 50%)
     );

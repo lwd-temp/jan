@@ -10,19 +10,11 @@ type Props = {
 
 export default function SystemItem({ name, value, titleBold }: Props) {
   return (
-    <div className="flex items-center gap-x-1 text-xs">
-      <p
-        className={twMerge(
-          titleBold ? 'font-semibold' : 'text-muted-foreground'
-        )}
-      >
+    <div className="flex items-center gap-x-1.5 text-xs">
+      <p className={twMerge(titleBold ? 'font-semibold' : 'opacity-70')}>
         {name}
       </p>
-      <span
-        className={twMerge(
-          titleBold ? 'text-muted-foreground' : 'font-semibold'
-        )}
-      >
+      <span className={twMerge(titleBold ? 'opacity-70 ' : 'font-semibold')}>
         {value}
       </span>
     </div>

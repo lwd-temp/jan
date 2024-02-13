@@ -46,7 +46,7 @@ const ModalConfirmReset = () => {
           This action is irreversible.
         </p>
         <div>
-          <p className="mb-2 mt-1 text-muted-foreground">{`To confirm, please enter the word "RESET" below:`}</p>
+          <p className="text-muted-foreground mb-2 mt-1">{`To confirm, please enter the word "RESET" below:`}</p>
           <Input
             placeholder='Enter "RESET"'
             onChange={(e) => setInputValue(e.target.value)}

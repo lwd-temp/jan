@@ -115,7 +115,8 @@ const Advanced = () => {
             Shortcuts that you might find useful in Jan app.
           </p>
         </div>
-        <ShortcutModal />
+        {/* fix button */}
+        {/* <ShortcutModal /> */}
       </div>
 
       {/* Experimental */}

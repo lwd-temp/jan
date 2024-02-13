@@ -1,6 +1,4 @@
 :root {
-  // radius
-
   --radius-small: 4px;
   --radius-medium: 6px;
   --radius-large: 8px;
@@ -8,4 +6,8 @@
   --bg-primary: 221, 83%, 53%;
   --bg-secondary: 240, 5%, 65%;
   --bg-destructive: 0, 72%, 51%;
+
+  --bg-success: 161, 94%, 30%;
+  --bg-warning: 45, 93%, 47%;
+  --bg-info: 217, 91%, 60%;
 }
