@@ -18,6 +18,6 @@
   }
   &-thumb {
     @apply relative z-50 w-[10px] rounded-full;
-    background-color: hsl(var(--default-scroll-bar));
+    background-color: hsl(var(--app-wrapper-fg), 20%);
   }
 }

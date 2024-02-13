@@ -65,12 +65,6 @@ export default function RibbonNav() {
     <div className={twMerge(styles.ribbonNav, 'top-10 h-[calc(100vh-40px)]')}>
       <div className={styles.wrapper}>
         <div>
-          {isMac && (
-            <div className="my-2">
-              <LogoMark width={28} height={28} className="mx-auto" />
-            </div>
-          )}
-
           {primaryMenus
             .filter((primary) => !!primary)
             .map((primary, i) => {

@@ -21,16 +21,16 @@ export default function Page() {
     //   children = <ExploreModelsScreen />
     //   break
 
-    case MainViewState.Settings:
-      children = <SettingsScreen />
-      break
+    // case MainViewState.Settings:
+    //   children = <SettingsScreen />
+    //   break
 
     // case MainViewState.LocalServer:
     //   children = <LocalServerScreen />
     //   break
 
     default:
-      children = <ChatScreen />
+      children = <SettingsScreen />
       break
   }
 

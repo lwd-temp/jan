@@ -119,7 +119,7 @@ const Advanced = () => {
       </div>
 
       {/* Experimental */}
-      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+      <div className={styles.listItem}>
         <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
             <h6 className={styles.listItemTitle}>Experimental Mode</h6>
@@ -137,9 +137,7 @@ const Advanced = () => {
 
       {/* CPU / GPU switching */}
       {!isMac && (
-        <div
-          className={twMerge('first:pt-0 last:border-none', styles.listItem)}
-        >
+        <div className={styles.listItem}>
           <div className={styles.listItemWrapper}>
             <div className="flex gap-x-2">
               <h6 className={styles.listItemTitle}>Nvidia GPU</h6>
@@ -179,7 +177,7 @@ const Advanced = () => {
       <DataFolder />
 
       {/* Proxy */}
-      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+      <div className={styles.listItem}>
         <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
             <h6 className={styles.listItemTitle}>HTTPS Proxy</h6>
@@ -198,7 +196,7 @@ const Advanced = () => {
       </div>
 
       {/* Ignore SSL certificates */}
-      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+      <div className={styles.listItem}>
         <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
             <h6 className={styles.listItemTitle}>Ignore SSL certificates</h6>
@@ -216,7 +214,7 @@ const Advanced = () => {
       </div>
 
       {/* Clear log */}
-      <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+      <div className={styles.listItem}>
         <div className={styles.listItemWrapper}>
           <div className="flex gap-x-2">
             <h6 className={styles.listItemTitle}>Clear logs</h6>

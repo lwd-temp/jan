@@ -12,7 +12,7 @@ const FactoryReset = () => {
   const setModalValidation = useSetAtom(modalValidationAtom)
 
   return (
-    <div className={twMerge('first:pt-0 last:border-none', styles.listItem)}>
+    <div className={twMerge('!border-none', styles.listItem)}>
       <div className={styles.listItemWrapper}>
         <h6 className={styles.listItemTitle}>Reset to Factory Default</h6>
         <p className={styles.listItemDescription}>

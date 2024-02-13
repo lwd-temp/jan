@@ -8,7 +8,7 @@
 .tooltip {
   background-color: hsl(var(--tooltip-bg));
   color: hsl(var(--tooltip-fg));
-  border-radius: var(--tooltip-radius);
+  border-radius: var(--tooltip-radius, var(--radius-medium));
   max-width: 200px;
   @apply max-w-80 px-3 py-2 z-50;
 

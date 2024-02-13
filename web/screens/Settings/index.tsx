@@ -32,7 +32,6 @@ const SettingsScreen = () => {
 
   useEffect(() => {
     const menu = ['My Models', 'My Settings', 'Advanced Settings']
-
     if (typeof window !== 'undefined' && window.electronAPI) {
       menu.push('Extensions')
     }
@@ -71,7 +70,7 @@ const SettingsScreen = () => {
           minSize={16}
           maxSize={40}
           defaultSize={22}
-          style={isMobile ? { flexGrow: 8 } : {}}
+          className={twMerge(isMobile && '!flex-auto')}
         >
           <ScrollArea
             className={twMerge(

@@ -6,7 +6,7 @@
 .topBar {
   background-color: hsl(var(--top-bar-bg));
   color: hsl(var(--top-bar-fg));
-  border: 1px solid hsl(var(--top-bar-border));
+  border-bottom: 1px solid hsl(var(--top-bar-border));
   -webkit-user-select: none;
   -webkit-app-region: drag;
   z-index: 40;

@@ -23,7 +23,7 @@
       // disabled and checked
       &:checked + .switch--thumb {
         cursor: not-allowed;
-        background-color: hsl(var(--default-bg-primary), 50%);
+        background-color: hsl(var(--bg-primary), 50%);
         &:before {
           background-color: hsl(var(--app-wrapper-bg));
         }
@@ -31,7 +31,7 @@
     }
 
     &:checked + .switch--thumb {
-      background-color: hsl(var(--default-bg-primary));
+      background-color: hsl(var(--bg-primary));
 
       &::before {
         -webkit-transform: translateX(24px);

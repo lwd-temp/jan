@@ -1,34 +1,11 @@
 :root {
   // radius
-  // --default-radius-small: 4px;
-  // --default-radius-medium: 6px;
-  // --default-radius-large: 8px;
 
-  // // background and Forground
-  // --default-bg-base: 0, 0%, 0%; // #000
-  // --default-fg-base: 0, 0%, 100%; // #FFF
+  --radius-small: 4px;
+  --radius-medium: 6px;
+  --radius-large: 8px;
 
-  // --default-border: 240, 5%, 96%; // #F4F4F5
-
-  // --default-scroll-bar: 240, 5%, 96%; // #F4F4F5
+  --bg-primary: 221, 83%, 53%;
+  --bg-secondary: 240, 5%, 65%;
+  --bg-destructive: 0, 72%, 51%;
 }
-
-// Jan light
-
-// :root {
-//   --app-wrapper-bg: 0, 0%, 100%;
-//   --app-wrapper-fg: 0, 0%, 0%;
-//   --default-border: 240, 5%, 96%;
-//   --ribbon-nav-bg: 0, 0%, 100%;
-//   --ribbon-nav-border: 240, 5%, 96%;
-//   --ribbon-nav-fg: 0, 0%, 0%;
-//   --ribbon-nav-icon-active-bg: 240, 5%, 96%;
-//   --ribbon-nav-icon-active-fg: 0, 0%, 0%;
-//   --ribbon-nav-icon-normal: 240, 4%, 46%;
-//   --tooltip-bg: 0, 0%, 0%;
-//   --tooltip-fg: 0, 0%, 100%;
-//   --tooltip-radius: 6px;
-//   --top-bar-bg: 0, 0%, 100%;
-//   --top-bar-border: 240, 5%, 96%;
-//   --top-bar-fg: 0, 0%, 0%;
-// }

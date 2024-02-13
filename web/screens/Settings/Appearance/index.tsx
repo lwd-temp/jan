@@ -32,6 +32,7 @@ export default function AppearanceOptions() {
               <Button
                 theme={isThemeActive ? 'primary' : 'secondary'}
                 key={i}
+                size="small"
                 className="mr-4 mt-4 capitalize"
                 onClick={() => {
                   if (!isThemeActive) {
